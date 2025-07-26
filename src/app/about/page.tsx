@@ -59,18 +59,18 @@ export default function AboutPage() {
                 <div className="space-y-6 text-lg leading-relaxed text-gray-700">
                   <p>
                     Stonebrook was born from the vibrant streets of Brooklyn, where every corner tells a story of resilience, 
-                    creativity, and community. We're a small but mighty team of digital artisans who believe that great design 
+                    creativity, and community. We&apos;re a small but mighty team of digital artisans who believe that great design 
                     should be accessible to every business, no matter the size.
                   </p>
                   
                   <p>
                     Our journey began with a simple observation: small businesses are the heartbeat of our communities, 
                     yet they often struggle to establish a meaningful digital presence. We saw an opportunity to bridge 
-                    this gap, combining Brooklyn's authentic spirit with cutting-edge web technology.
+                    this gap, combining Brooklyn&apos;s authentic spirit with cutting-edge web technology.
                   </p>
                   
                   <p>
-                    Today, we're proud to serve businesses that share our values—authenticity, quality, and a commitment 
+                    Today, we&apos;re proud to serve businesses that share our values—authenticity, quality, and a commitment 
                     to their communities. Every project we touch becomes a testament to our unwavering dedication to 
                     excellence and our deep understanding of what makes small businesses thrive.
                   </p>
@@ -145,7 +145,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-[#2C3E50] mb-4">Excellence</h3>
               <p className="text-gray-600 leading-relaxed">
-                We don't just build websites—we craft digital experiences that reflect the quality and care 
+                We don&apos;t just build websites—we craft digital experiences that reflect the quality and care 
                 that our clients put into their own businesses. Every detail matters.
               </p>
             </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">Meet Our Team</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Small team, big impact. We're the Brooklyn-based talents behind every Stonebrook project.
+              Small team, big impact. We&apos;re the Brooklyn-based talents behind every Stonebrook project.
             </p>
           </div>
 
@@ -211,7 +211,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Work Together?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's create something amazing. Your vision, our expertise, Brooklyn's spirit.
+            Let&apos;s create something amazing. Your vision, our expertise, Brooklyn&apos;s spirit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 

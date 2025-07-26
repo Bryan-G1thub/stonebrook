@@ -1,42 +1,8 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import React from "react"; // Added missing import for React
+import React from "react";
 import Link from "next/link";
 
 export default function OurOffering() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
-  const features = [
-    {
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      title: "Fast Turnaround",
-      description: "Launch quickly without sacrificing quality. We streamline our process to deliver results in weeks, not months."
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
-      title: "Built for Conversion",
-      description: "Designed to turn visitors into customers. Every element is optimized for your business goals."
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "Clean Responsive Design",
-      description: "Looks great on every device. Mobile-first approach ensures your site works perfectly everywhere."
-    }
-  ];
-
   return (
     <section className="w-full py-24 px-4 bg-gradient-to-b from-white to-gray-50" id="offering">
       <div className="max-w-6xl mx-auto">

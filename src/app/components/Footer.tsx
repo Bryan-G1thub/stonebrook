@@ -101,7 +101,7 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-center lg:text-left">
               <h4 className="text-xl font-semibold mb-2">Ready to start your project?</h4>
-              <p className="text-white/80">Let's build something amazing together.</p>
+              <p className="text-white/80">Let&apos;s build something amazing together.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link 

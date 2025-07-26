@@ -32,10 +32,10 @@ export default function ContactPage() {
       <section className="w-full py-20 px-4 bg-gradient-to-br from-[#2C3E50] via-[#34495e] to-[#2C3E50] relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">Let's Build Together</h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Ready to bring your vision to life? We're here to make it happen.
-            </p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">Let&apos;s Build Together</h1>
+                          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                Ready to bring your vision to life? We&apos;re here to make it happen.
+              </p>
           </div>
         </div>
         
@@ -148,7 +148,7 @@ export default function ContactPage() {
                         <option value="10k-25k">$10,000 - $25,000</option>
                         <option value="25k-50k">$25,000 - $50,000</option>
                         <option value="50k-plus">$50,000+</option>
-                        <option value="discuss">Let's discuss</option>
+                        <option value="discuss">Let&apos;s discuss</option>
                       </select>
                     </div>
                   </div>
@@ -210,8 +210,8 @@ export default function ContactPage() {
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-6">Get in Touch</h2>
                   <p className="text-lg text-gray-600 leading-relaxed">
-                    Ready to transform your digital presence? We're here to help you build something amazing. 
-                    Let's discuss your project and see how we can bring your vision to life.
+                    Ready to transform your digital presence? We&apos;re here to help you build something amazing. 
+                    Let&apos;s discuss your project and see how we can bring your vision to life.
                   </p>
                 </div>
 
@@ -298,10 +298,10 @@ export default function ContactPage() {
 
           <div className="space-y-6">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-xl font-bold text-[#2C3E50] mb-4">What's your typical project timeline?</h3>
+              <h3 className="text-xl font-bold text-[#2C3E50] mb-4">What&apos;s your typical project timeline?</h3>
               <p className="text-gray-600 leading-relaxed">
                 Most projects take 4-8 weeks from start to finish. Simple websites can be completed in 2-4 weeks, 
-                while complex applications may take 8-12 weeks. We'll provide a detailed timeline during our initial consultation.
+                while complex applications may take 8-12 weeks. We&apos;ll provide a detailed timeline during our initial consultation.
               </p>
             </div>
 
@@ -309,22 +309,22 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-[#2C3E50] mb-4">Do you provide ongoing support?</h3>
               <p className="text-gray-600 leading-relaxed">
                 Absolutely! We offer maintenance packages and ongoing support to ensure your website continues to perform 
-                at its best. We're here for the long haul, not just the initial build.
+                at its best. We&apos;re here for the long haul, not just the initial build.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-xl font-bold text-[#2C3E50] mb-4">What's included in your pricing?</h3>
+              <h3 className="text-xl font-bold text-[#2C3E50] mb-4">What&apos;s included in your pricing?</h3>
               <p className="text-gray-600 leading-relaxed">
                 Our pricing includes design, development, testing, launch, and 30 days of post-launch support. 
-                We're transparent about costs and will provide a detailed breakdown before we begin.
+                We&apos;re transparent about costs and will provide a detailed breakdown before we begin.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h3 className="text-xl font-bold text-[#2C3E50] mb-4">Do you work with clients outside NYC?</h3>
               <p className="text-gray-600 leading-relaxed">
-                Yes! While we're based in Brooklyn, we work with clients worldwide. Our digital-first approach 
+                Yes! While we&apos;re based in Brooklyn, we work with clients worldwide. Our digital-first approach 
                 means we can collaborate effectively regardless of location.
               </p>
             </div>

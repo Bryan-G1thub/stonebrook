@@ -2,12 +2,18 @@
 import { useState } from "react";
 import Link from "next/link";
 
+interface Principle {
+  heading: string;
+  subtext: string;
+  graphic: React.ReactNode;
+}
+
 function PrincipleCard({ 
   principle, 
   isActive, 
   onClick 
 }: { 
-  principle: any; 
+  principle: Principle; 
   isActive: boolean; 
   onClick: () => void;
 }) {

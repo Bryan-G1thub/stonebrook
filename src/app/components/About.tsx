@@ -51,7 +51,7 @@ export default function About() {
                 <p>
                   Born from the vibrant streets of Brooklyn, we understand the pulse of urban entrepreneurship. 
                   Every coffee shop, every local store, every neighborhood service—these are the heartbeats of our communities. 
-                  We're here to amplify their voices in the digital world.
+                  We&apos;re here to amplify their voices in the digital world.
                 </p>
                 
                 <p>
