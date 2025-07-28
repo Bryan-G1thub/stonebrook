@@ -11,6 +11,8 @@ export default function ContactPage() {
     timeline: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -20,10 +22,40 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://formspree.io/f/mvgqrqvg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          timeline: "",
+          message: ""
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -33,9 +65,9 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center text-white">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">Let&apos;s Build Together</h1>
-                          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Ready to bring your vision to life? We&apos;re here to make it happen.
-              </p>
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Ready to bring your vision to life? We&apos;re here to make it happen.
+            </p>
           </div>
         </div>
         
@@ -56,6 +88,29 @@ export default function ContactPage() {
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-12 shadow-2xl">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-8">Start Your Project</h2>
                 
+                {/* Success/Error Messages */}
+                {submitStatus === 'success' && (
+                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+                    <div className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <p className="text-green-800 font-medium">Message sent successfully! We'll get back to you within 24 hours.</p>
+                    </div>
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+                    <div className="flex items-center">
+                      <svg className="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <p className="text-red-800 font-medium">Something went wrong. Please try again or email us directly.</p>
+                    </div>
+                  </div>
+                )}
+                
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name and Email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -70,8 +125,9 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500"
                         placeholder="John Doe"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -85,8 +141,9 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500"
                         placeholder="john@company.com"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -102,8 +159,9 @@ export default function ContactPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500"
                       placeholder="Your Company"
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -119,7 +177,8 @@ export default function ContactPage() {
                         value={formData.projectType}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 text-gray-900"
+                        disabled={isSubmitting}
                       >
                         <option value="">Select project type</option>
                         <option value="website">Website Design</option>
@@ -140,7 +199,8 @@ export default function ContactPage() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 text-gray-900"
+                        disabled={isSubmitting}
                       >
                         <option value="">Select budget range</option>
                         <option value="under-5k">Under $5,000</option>
@@ -163,7 +223,8 @@ export default function ContactPage() {
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 text-gray-900"
+                      disabled={isSubmitting}
                     >
                       <option value="">Select timeline</option>
                       <option value="asap">ASAP</option>
@@ -186,8 +247,9 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#2C3E50] focus:border-transparent transition-all duration-300 resize-none text-gray-900 placeholder-gray-500"
                       placeholder="Tell us about your project, goals, and vision..."
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -195,9 +257,24 @@ export default function ContactPage() {
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#2C3E50] to-[#34495e] text-white py-4 px-8 rounded-xl hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold text-lg"
+                      disabled={isSubmitting}
+                      className={`w-full py-4 px-8 rounded-xl font-semibold text-lg transition-all duration-300 ${
+                        isSubmitting 
+                          ? 'bg-gray-400 cursor-not-allowed' 
+                          : 'bg-gradient-to-r from-[#2C3E50] to-[#34495e] text-white hover:shadow-xl transform hover:-translate-y-1'
+                      }`}
                     >
-                      Send Message
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center">
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </div>
+                      ) : (
+                        'Send Message'
+                      )}
                     </button>
                   </div>
                 </form>
@@ -225,7 +302,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-[#2C3E50] mb-1">Email</h3>
-                      <p className="text-gray-600">hello@stonebrook.studio</p>
+                      <p className="text-gray-600">hello@stonebrooknyc.com</p>
                       <p className="text-sm text-gray-500">We typically respond within 24 hours</p>
                     </div>
                   </div>
