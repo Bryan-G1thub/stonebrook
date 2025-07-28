@@ -153,58 +153,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="w-full py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Small team, big impact. We&apos;re the Brooklyn-based talents behind every Stonebrook project.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Team Member 1 */}
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-24 h-24 bg-gradient-to-br from-[#2C3E50] to-[#34495e] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">JD</span>
-              </div>
-              <h3 className="text-xl font-bold text-[#2C3E50] mb-2">Jordan Davis</h3>
-              <p className="text-gray-600 mb-4">Lead Developer & Designer</p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Brooklyn native with a passion for clean code and beautiful design. 
-                Specializes in React, Next.js, and creating seamless user experiences.
-              </p>
-            </div>
-
-            {/* Team Member 2 */}
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-24 h-24 bg-gradient-to-br from-[#2C3E50] to-[#34495e] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">SM</span>
-              </div>
-              <h3 className="text-xl font-bold text-[#2C3E50] mb-2">Sarah Martinez</h3>
-              <p className="text-gray-600 mb-4">UX Strategist & Project Manager</p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Ensures every project exceeds expectations. Expert in user research, 
-                project coordination, and turning complex ideas into elegant solutions.
-              </p>
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-24 h-24 bg-gradient-to-br from-[#2C3E50] to-[#34495e] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">AK</span>
-              </div>
-              <h3 className="text-xl font-bold text-[#2C3E50] mb-2">Alex Kim</h3>
-              <p className="text-gray-600 mb-4">Creative Director & Brand Strategist</p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Brings brands to life through compelling visual storytelling and strategic 
-                design thinking. Expert in creating memorable digital experiences.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="w-full py-20 px-4 bg-gradient-to-br from-[#2C3E50] to-[#34495e]">
