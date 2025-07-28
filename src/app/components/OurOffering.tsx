@@ -22,102 +22,102 @@ export default function OurOffering() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 h-full items-center">
               
               {/* Left side - Modern Illustration */}
-              <div className="relative">
+              <div className="relative flex justify-center lg:justify-start">
                 {/* Modern website illustration */}
-                <div className="relative w-96 h-96 mx-auto">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto lg:mx-0">
                   {/* Main browser window */}
                   <div className="absolute inset-0 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
                     {/* Browser header */}
-                    <div className="h-8 bg-gray-100 flex items-center px-4 space-x-2">
-                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <div className="h-6 sm:h-8 bg-gray-100 flex items-center px-3 sm:px-4 space-x-1 sm:space-x-2">
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full"></div>
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full"></div>
                       <div className="flex-1"></div>
-                      <div className="w-32 h-4 bg-gray-200 rounded-full"></div>
+                      <div className="w-20 sm:w-32 h-3 sm:h-4 bg-gray-200 rounded-full"></div>
                     </div>
                     
                     {/* Content area */}
-                    <div className="p-6">
+                    <div className="p-3 sm:p-4 lg:p-6">
                       {/* Header with logo and navigation */}
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-6 h-6 bg-gradient-to-br from-[#2C3E50] to-[#34495e] rounded-lg flex items-center justify-center">
-                            <div className="w-3 h-3 bg-white rounded-sm"></div>
+                      <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
+                        <div className="flex items-center space-x-2 sm:space-x-3">
+                          <div className="w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-[#2C3E50] to-[#34495e] rounded-lg flex items-center justify-center">
+                            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-sm"></div>
                           </div>
-                          <div className="w-16 h-4 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded"></div>
+                          <div className="w-10 sm:w-16 h-3 sm:h-4 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded"></div>
                         </div>
-                        <div className="flex space-x-2">
-                          <div className="w-6 h-2 bg-gray-300 rounded"></div>
-                          <div className="w-6 h-2 bg-gray-300 rounded"></div>
-                          <div className="w-6 h-2 bg-gray-300 rounded"></div>
+                        <div className="flex space-x-1 sm:space-x-2">
+                          <div className="w-4 h-1.5 sm:w-6 sm:h-2 bg-gray-300 rounded"></div>
+                          <div className="w-4 h-1.5 sm:w-6 sm:h-2 bg-gray-300 rounded"></div>
+                          <div className="w-4 h-1.5 sm:w-6 sm:h-2 bg-gray-300 rounded"></div>
                         </div>
                       </div>
                       
                       {/* Hero section with image */}
-                      <div className="mb-6">
-                        <div className="h-4 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded-full w-3/4 mb-2"></div>
-                        <div className="h-3 bg-gray-300 rounded-full w-full mb-4"></div>
-                        <div className="relative mb-4">
-                          <div className="w-full h-20 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg flex items-center justify-center border border-gray-200">
+                      <div className="mb-3 sm:mb-4 lg:mb-6">
+                        <div className="h-3 sm:h-4 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded-full w-3/4 mb-1 sm:mb-2"></div>
+                        <div className="h-2 sm:h-3 bg-gray-300 rounded-full w-full mb-2 sm:mb-4"></div>
+                        <div className="relative mb-2 sm:mb-4">
+                          <div className="w-full h-12 sm:h-16 lg:h-20 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg flex items-center justify-center border border-gray-200">
                             <div className="grid grid-cols-4 gap-1">
-                              <div className="w-3 h-3 bg-blue-300 rounded"></div>
-                              <div className="w-3 h-3 bg-purple-300 rounded"></div>
-                              <div className="w-3 h-3 bg-indigo-300 rounded"></div>
-                              <div className="w-3 h-3 bg-blue-300 rounded"></div>
-                              <div className="w-3 h-3 bg-purple-300 rounded"></div>
-                              <div className="w-3 h-3 bg-indigo-300 rounded"></div>
-                              <div className="w-3 h-3 bg-blue-300 rounded"></div>
-                              <div className="w-3 h-3 bg-purple-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-indigo-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-indigo-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-300 rounded"></div>
+                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-300 rounded"></div>
                             </div>
                           </div>
-                          <div className="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-sm">
-                            <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
+                          <div className="absolute top-1 right-1 sm:top-2 sm:right-2 w-3 h-3 sm:w-5 sm:h-5 bg-white rounded-full flex items-center justify-center shadow-sm">
+                            <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-green-400 rounded-full"></div>
                           </div>
                         </div>
-                        <div className="flex space-x-2">
-                          <div className="w-16 h-7 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded-lg flex items-center justify-center">
-                            <div className="w-2.5 h-2.5 bg-white rounded-sm"></div>
+                        <div className="flex space-x-1 sm:space-x-2">
+                          <div className="w-12 h-5 sm:w-16 sm:h-7 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded-lg flex items-center justify-center">
+                            <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-white rounded-sm"></div>
                           </div>
-                          <div className="w-12 h-7 border border-gray-300 rounded-lg flex items-center justify-center">
-                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+                          <div className="w-8 h-5 sm:w-12 sm:h-7 border border-gray-300 rounded-lg flex items-center justify-center">
+                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-400 rounded-full"></div>
                           </div>
                         </div>
                       </div>
                       
                       {/* Content grid with icons */}
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-3">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-4 h-4 bg-blue-100 rounded flex items-center justify-center">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                        <div className="space-y-2 sm:space-y-3">
+                          <div className="flex items-center space-x-1 sm:space-x-2">
+                            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-blue-100 rounded flex items-center justify-center">
+                              <div className="w-1 h-1 sm:w-2 sm:h-2 bg-blue-500 rounded-full"></div>
                             </div>
                             <div className="flex-1">
-                              <div className="w-full h-2 bg-gray-200 rounded mb-1"></div>
-                              <div className="w-2/3 h-1.5 bg-gray-200 rounded"></div>
+                              <div className="w-full h-1.5 sm:h-2 bg-gray-200 rounded mb-0.5 sm:mb-1"></div>
+                              <div className="w-2/3 h-1 sm:h-1.5 bg-gray-200 rounded"></div>
                             </div>
                           </div>
                         </div>
-                        <div className="space-y-3">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-4 h-4 bg-purple-100 rounded flex items-center justify-center">
-                              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        <div className="space-y-2 sm:space-y-3">
+                          <div className="flex items-center space-x-1 sm:space-x-2">
+                            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-purple-100 rounded flex items-center justify-center">
+                              <div className="w-1 h-1 sm:w-2 sm:h-2 bg-purple-500 rounded-full"></div>
                             </div>
                             <div className="flex-1">
-                              <div className="w-full h-2 bg-gray-200 rounded mb-1"></div>
-                              <div className="w-2/3 h-1.5 bg-gray-200 rounded"></div>
+                              <div className="w-full h-1.5 sm:h-2 bg-gray-200 rounded mb-0.5 sm:mb-1"></div>
+                              <div className="w-2/3 h-1 sm:h-1.5 bg-gray-200 rounded"></div>
                             </div>
                           </div>
                         </div>
                       </div>
                       
                       {/* Footer with stats */}
-                      <div className="mt-6 pt-4 border-t border-gray-100">
+                      <div className="mt-3 sm:mt-4 lg:mt-6 pt-2 sm:pt-3 lg:pt-4 border-t border-gray-100">
                         <div className="flex justify-between items-center">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
+                          <div className="flex items-center space-x-1 sm:space-x-2">
+                            <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-green-400 rounded-full animate-pulse"></div>
                             <span className="text-xs text-gray-500">Live</span>
                           </div>
-                          <div className="flex space-x-3">
+                          <div className="flex space-x-2 sm:space-x-3">
                             <div className="text-center">
                               <div className="text-xs font-semibold text-gray-700">2.1s</div>
                               <div className="text-xs text-gray-400">Load</div>
@@ -133,10 +133,10 @@ export default function OurOffering() {
                   </div>
                   
                   {/* Floating performance badge */}
-                  <div className="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-lg border border-gray-100">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-500 rounded-lg flex items-center justify-center">
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg border border-gray-100">
+                    <div className="flex items-center space-x-1 sm:space-x-2">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-green-400 to-green-500 rounded-lg flex items-center justify-center">
+                        <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                       </div>
@@ -148,11 +148,11 @@ export default function OurOffering() {
                   </div>
                   
                   {/* Performance indicators */}
-                  <div className="absolute top-1/2 -right-8 transform -translate-y-1/2">
-                    <div className="flex flex-col space-y-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                  <div className="absolute top-1/2 -right-4 sm:-right-8 transform -translate-y-1/2">
+                    <div className="flex flex-col space-y-1 sm:space-y-2">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
                     </div>
                   </div>
                   
@@ -177,7 +177,7 @@ export default function OurOffering() {
                     {[...Array(6)].map((_, i) => (
                       <div
                         key={i}
-                        className="absolute w-1 h-1 bg-[#2C3E50]/30 rounded-full animate-pulse"
+                        className="absolute w-0.5 h-0.5 sm:w-1 sm:h-1 bg-[#2C3E50]/30 rounded-full animate-pulse"
                         style={{
                           left: `${15 + (i * 12) % 70}%`,
                           top: `${20 + (i * 10) % 60}%`,
@@ -208,59 +208,55 @@ export default function OurOffering() {
                   </p>
                   
                   {/* Modern Responsive Offerings Gallery */}
-                  <div className="w-full flex flex-wrap justify-center gap-10 py-12">
+                  <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-10 py-8 sm:py-12">
                     {/* Blue icon circles only */}
                     {[
                       {
                         icon: (
-                          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                           </svg>
                         ),
                         title: "Mobile First",
-                        subtitle: "Responsive design",
-                        className: "mt-8 mr-2"
+                        subtitle: "Responsive design"
                       },
                       {
                         icon: (
-                          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                           </svg>
                         ),
                         title: "Lightning Fast",
-                        subtitle: "Optimized performance",
-                        className: "-mt-2 ml-4"
+                        subtitle: "Optimized performance"
                       },
                       {
                         icon: (
-                          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                           </svg>
                         ),
                         title: "SEO Ready",
-                        subtitle: "Search optimized",
-                        className: "mt-6 -ml-2"
+                        subtitle: "Search optimized"
                       },
                       {
                         icon: (
-                          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                           </svg>
                         ),
                         title: "Convert Ready",
-                        subtitle: "Lead generation",
-                        className: "-mt-4 ml-2"
+                        subtitle: "Lead generation"
                       }
                     ].map((item, i) => (
                       <div
                         key={i}
-                        className={`flex flex-col items-center justify-center rounded-full bg-gradient-to-br from-[#2C3E50] to-[#34495e] w-56 h-56 shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 p-6 ${item.className}`}
+                        className="flex flex-col items-center justify-center rounded-full bg-gradient-to-br from-[#2C3E50] to-[#34495e] w-36 h-36 sm:w-44 sm:h-44 lg:w-56 lg:h-56 shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 p-4 sm:p-5 lg:p-6"
                       >
-                        <div className="mb-3 text-white flex items-center justify-center">
+                        <div className="mb-2 sm:mb-3 text-white flex items-center justify-center">
                           {item.icon}
                         </div>
-                        <h3 className="text-xl font-bold text-white text-center mb-1 whitespace-normal break-words">{item.title}</h3>
-                        <p className="text-base text-white/90 text-center whitespace-normal break-words">{item.subtitle}</p>
+                        <h3 className="text-sm sm:text-base lg:text-xl font-bold text-white text-center mb-1 whitespace-normal break-words">{item.title}</h3>
+                        <p className="text-xs sm:text-sm lg:text-base text-white/90 text-center whitespace-normal break-words">{item.subtitle}</p>
                       </div>
                     ))}
                   </div>
