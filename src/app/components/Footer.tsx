@@ -26,7 +26,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <span className="text-white/90">hello@stonebrook.studio</span>
+                <span className="text-white/90">hello@stonebrooknyc.com</span>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-white/60 text-sm">
-              © 2024 Stonebrook. All rights reserved.
+              © 2025 Stonebrook. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <span className="text-white/60">Brooklyn, NY</span>
