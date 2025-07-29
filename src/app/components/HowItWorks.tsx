@@ -94,7 +94,7 @@ export default function HowItWorks() {
         {/* CTA Section */}
         <div className="text-center mt-12 sm:mt-16">
           <p className="text-gray-600 text-lg sm:text-xl mb-6 sm:mb-8">
-            Ready to get started? Let's build something amazing together.
+            Ready to get started? Let&apos;s build something amazing together.
           </p>
           <a 
             href="/contact" 
