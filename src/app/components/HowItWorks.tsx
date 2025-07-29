@@ -44,25 +44,29 @@ export default function HowItWorks() {
             <div key={step.title} className="relative">
               {/* Timeline line */}
               {index < steps.length - 1 && (
-                <div className="absolute left-8 sm:left-12 top-16 sm:top-20 w-0.5 h-8 sm:h-12 bg-gradient-to-b from-[#2C3E50] to-[#34495e]"></div>
+                <div className="absolute left-8 sm:left-12 top-16 sm:top-20 w-0.5 h-8 sm:h-12 bg-gradient-to-b from-[#2C3E50] to-[#34495e] lg:h-16"></div>
               )}
               
               {/* Step Card */}
-              <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
-                {/* Background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2C3E50]/5 to-[#34495e]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group lg:shadow-2xl lg:hover:shadow-3xl lg:transform lg:hover:-translate-y-2">
+                {/* Enhanced background gradient on hover for desktop */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2C3E50]/5 to-[#34495e]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 lg:from-[#2C3E50]/10 lg:to-[#34495e]/10"></div>
                 
-                <div className="relative p-6 sm:p-8">
-                  <div className="flex items-start space-x-4 sm:space-x-6">
+                {/* Desktop-only depth layers */}
+                <div className="hidden lg:block absolute inset-0 bg-gradient-to-br from-white/80 to-gray-50/80 rounded-2xl"></div>
+                <div className="hidden lg:block absolute inset-0 bg-gradient-to-br from-[#2C3E50]/5 via-transparent to-[#34495e]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative p-6 sm:p-8 lg:p-10">
+                  <div className="flex items-start space-x-4 sm:space-x-6 lg:space-x-8">
                     {/* Step Number & Icon */}
                     <div className="flex-shrink-0">
                       <div className="relative">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-[#2C3E50] to-[#34495e] text-white text-xl sm:text-2xl font-bold shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex items-center justify-center rounded-full bg-gradient-to-br from-[#2C3E50] to-[#34495e] text-white text-xl sm:text-2xl lg:text-3xl font-bold shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 lg:shadow-2xl lg:group-hover:shadow-3xl">
                           {index + 1}
                         </div>
                         {/* Icon overlay */}
-                        <div className="absolute -bottom-1 -right-1 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center shadow-md border-2 border-[#2C3E50] group-hover:scale-110 transition-transform duration-300">
-                          <div className="text-[#2C3E50]">
+                        <div className="absolute -bottom-1 -right-1 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full flex items-center justify-center shadow-md border-2 border-[#2C3E50] group-hover:scale-110 transition-transform duration-300 lg:shadow-lg">
+                          <div className="text-[#2C3E50] lg:text-lg">
                             {step.icon}
                           </div>
                         </div>
@@ -71,37 +75,39 @@ export default function HowItWorks() {
                     
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-xl sm:text-2xl text-[#2C3E50] mb-2 sm:mb-3 group-hover:text-[#34495e] transition-colors duration-300">
+                      <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl text-[#2C3E50] mb-2 sm:mb-3 lg:mb-4 group-hover:text-[#34495e] transition-colors duration-300">
                         {step.title}
                       </h3>
-                      <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                      <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed">
                         {step.desc}
                       </p>
                     </div>
-                    
-                    
                   </div>
                 </div>
                 
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-[#2C3E50]/20 rounded-full group-hover:bg-[#2C3E50]/40 transition-all duration-300"></div>
-                <div className="absolute bottom-4 left-4 w-3 h-3 bg-[#34495e]/10 rounded-full group-hover:bg-[#34495e]/20 transition-all duration-300"></div>
+                {/* Enhanced decorative elements for desktop */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-[#2C3E50]/20 rounded-full group-hover:bg-[#2C3E50]/40 transition-all duration-300 lg:w-3 lg:h-3"></div>
+                <div className="absolute bottom-4 left-4 w-3 h-3 bg-[#34495e]/10 rounded-full group-hover:bg-[#34495e]/20 transition-all duration-300 lg:w-4 lg:h-4"></div>
+                
+                {/* Desktop-only additional decorative elements */}
+                <div className="hidden lg:block absolute top-8 left-8 w-1 h-1 bg-[#2C3E50]/30 rounded-full group-hover:bg-[#2C3E50]/50 transition-all duration-300"></div>
+                <div className="hidden lg:block absolute bottom-8 right-8 w-2 h-2 bg-[#34495e]/20 rounded-full group-hover:bg-[#34495e]/40 transition-all duration-300"></div>
               </div>
             </div>
           ))}
         </div>
         
         {/* CTA Section */}
-        <div className="text-center mt-12 sm:mt-16">
-          <p className="text-gray-600 text-lg sm:text-xl mb-6 sm:mb-8">
+        <div className="text-center mt-12 sm:mt-16 lg:mt-20">
+          <p className="text-gray-600 text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 lg:mb-10">
             Ready to get started? Let&apos;s build something amazing together.
           </p>
           <a 
             href="/contact" 
-            className="inline-flex items-center justify-center bg-[#2C3E50] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full hover:bg-[#34495e] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold text-base sm:text-lg"
+            className="inline-flex items-center justify-center bg-[#2C3E50] text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-full hover:bg-[#34495e] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold text-base sm:text-lg lg:text-xl lg:shadow-2xl lg:hover:shadow-3xl"
           >
             Start Your Project
-            <svg className="w-5 h-5 sm:w-6 sm:h-6 ml-2 sm:ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ml-2 sm:ml-3 lg:ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </a>

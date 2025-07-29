@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
 
 interface Principle {
@@ -9,26 +8,15 @@ interface Principle {
 }
 
 function PrincipleCard({ 
-  principle, 
-  isActive, 
-  onClick 
+  principle
 }: { 
-  principle: Principle; 
-  isActive: boolean; 
-  onClick: () => void;
+  principle: Principle;
 }) {
   return (
-    <div 
-      className={`relative cursor-pointer transition-all duration-500 ${
-        isActive ? 'scale-105 z-20' : 'scale-100 hover:scale-102'
-      }`}
-      onClick={onClick}
-    >
-      <div className={`relative rounded-2xl transition-all duration-500 bg-white text-[#2C3E50] shadow-lg hover:shadow-xl ${
-        isActive ? 'shadow-2xl ring-4 ring-[#2C3E50]/20' : ''
-      }`}>
+    <div className="relative transition-all duration-500 hover:scale-105">
+      <div className="relative rounded-2xl transition-all duration-500 bg-white text-[#2C3E50] shadow-lg hover:shadow-xl">
         <div className="relative p-6 sm:p-8 h-full flex flex-col items-center justify-center text-center">
-          <div className={`text-3xl sm:text-4xl mb-4 transition-all duration-300 ${isActive ? 'scale-110' : 'scale-100'}`}>
+          <div className="text-3xl sm:text-4xl mb-4 transition-all duration-300">
             {principle.graphic}
           </div>
           <h3 className="font-bold text-lg sm:text-xl mb-2 transition-colors duration-300 text-[#2C3E50]">
@@ -37,15 +25,6 @@ function PrincipleCard({
           <p className="text-sm sm:text-base leading-relaxed transition-colors duration-300 text-gray-600">
             {principle.subtext}
           </p>
-          
-          {/* Active indicator */}
-          {isActive && (
-            <div className="absolute -top-2 -right-2">
-              <div className="w-6 h-6 bg-[#2C3E50] rounded-full flex items-center justify-center shadow-lg">
-                <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
@@ -53,8 +32,6 @@ function PrincipleCard({
 }
 
 export default function Principles() {
-  const [activePrinciple, setActivePrinciple] = useState(0);
-
   const principles = [
     {
       heading: "Simplicity wins.",
@@ -174,8 +151,6 @@ export default function Principles() {
               <PrincipleCard
                 key={index}
                 principle={principle}
-                isActive={activePrinciple === index}
-                onClick={() => setActivePrinciple(index)}
               />
             ))}
           </div>

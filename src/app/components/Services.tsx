@@ -18,7 +18,7 @@ function ServiceCard({
 }) {
   return (
     <div 
-      className={`relative p-4 sm:p-6 rounded-2xl cursor-pointer transition-all duration-500 ${
+      className={`relative p-4 sm:p-6 lg:p-8 rounded-2xl cursor-pointer transition-all duration-500 ${
         isActive 
           ? 'bg-gradient-to-br from-[#2C3E50] to-[#34495e] text-white shadow-2xl scale-105' 
           : 'bg-white text-[#2C3E50] shadow-lg hover:shadow-xl hover:scale-102'
@@ -35,23 +35,23 @@ function ServiceCard({
       )}
       
       <div className="relative z-10">
-        <div className={`text-3xl sm:text-4xl mb-3 sm:mb-4 ${isActive ? 'text-white animate-bounce' : 'text-[#2C3E50]'}`}>
+        <div className={`text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4 lg:mb-6 ${isActive ? 'text-white animate-bounce' : 'text-[#2C3E50]'}`}>
           {icon}
         </div>
-        <h3 className={`font-bold text-lg sm:text-xl mb-2 sm:mb-3 ${isActive ? 'text-white' : 'text-[#2C3E50]'}`}>
+        <h3 className={`font-bold text-lg sm:text-xl lg:text-2xl mb-2 sm:mb-3 lg:mb-4 ${isActive ? 'text-white' : 'text-[#2C3E50]'}`}>
           {title}
         </h3>
-        <p className={`text-sm mb-3 sm:mb-4 leading-relaxed ${isActive ? 'text-white/90' : 'text-gray-600'}`}>
+        <p className={`text-sm sm:text-base lg:text-lg mb-3 sm:mb-4 lg:mb-6 leading-relaxed ${isActive ? 'text-white/90' : 'text-gray-600'}`}>
           {desc}
         </p>
         
         {/* Features list - only show when active */}
         {isActive && (
-          <div className="space-y-2 mb-4 animate-fade-in">
+          <div className="space-y-2 lg:space-y-3 mb-4 animate-fade-in">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center space-x-2 animate-slide-up" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
-                <span className="text-xs text-white/80">
+              <div key={index} className="flex items-center space-x-2 lg:space-x-3 animate-slide-up" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-white"></div>
+                <span className="text-xs lg:text-sm text-white/80">
                   {feature}
                 </span>
               </div>
@@ -60,12 +60,12 @@ function ServiceCard({
         )}
         
         {/* Active indicator and dropdown icon */}
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-4 right-4 lg:top-6 lg:right-6">
           {isActive ? (
-            <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+            <div className="w-3 h-3 lg:w-4 lg:h-4 bg-white rounded-full animate-pulse"></div>
           ) : (
             <div className="text-[#2C3E50] opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </div>
@@ -116,35 +116,33 @@ export default function Services() {
   ];
 
   return (
-    <section className="w-full py-16 sm:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 px-4" id="services">
+    <section className="w-full py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 px-4" id="services">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#2C3E50] mb-4 sm:mb-6">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#2C3E50] mb-4 sm:mb-6 lg:mb-8">
             Our Services
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
             Comprehensive web solutions designed to grow your business
           </p>
         </div>
 
-        {/* Mobile-first Layout */}
-        <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-8 lg:gap-12">
+        {/* Responsive Layout */}
+        <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8 xl:gap-12">
           
-          {/* Service Cards - Stack on mobile, side-by-side on desktop */}
-          <div className="lg:col-span-12 space-y-4 sm:space-y-6">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                icon={service.icon}
-                title={service.title}
-                desc={service.desc}
-                features={service.features}
-                isActive={activeService === index}
-                onClick={() => setActiveService(index)}
-              />
-            ))}
-          </div>
+          {/* Service Cards - Stack on mobile, 3-column grid on desktop */}
+          {services.map((service, index) => (
+            <ServiceCard
+              key={index}
+              icon={service.icon}
+              title={service.title}
+              desc={service.desc}
+              features={service.features}
+              isActive={activeService === index}
+              onClick={() => setActiveService(index)}
+            />
+          ))}
         </div>
       </div>
     </section>
