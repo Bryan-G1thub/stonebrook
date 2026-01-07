@@ -1,27 +1,25 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Code2, Palette } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 
 export default function About() {
-  // Using plain mouse coordinates for background motion; motion values removed to keep types simple.
-  const mouseX = { current: 0 };
-  const mouseY = { current: 0 };
-
-  const x = mouseX.current;
-  const y = mouseY.current;
+  const mouseX = useRef(0);
+  const mouseY = useRef(0);
+  const positionRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.current = e.clientX;
       mouseY.current = e.clientY;
+      positionRef.current = { x: e.clientX, y: e.clientY };
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, []);
 
   return (
     <section className="bg-[#0A1628] py-32 px-6 md:px-12 relative overflow-hidden" id="about">
@@ -29,8 +27,8 @@ export default function About() {
       <motion.div
         className="absolute w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 blur-3xl pointer-events-none"
         style={{
-          left: x,
-          top: y,
+          left: positionRef.current.x,
+          top: positionRef.current.y,
           translateX: "-50%",
           translateY: "-50%",
         }}
@@ -38,8 +36,8 @@ export default function About() {
       <motion.div
         className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-pink-500/20 to-yellow-500/20 blur-3xl pointer-events-none"
         style={{
-          left: x,
-          top: y,
+          left: positionRef.current.x,
+          top: positionRef.current.y,
           translateX: "-25%",
           translateY: "-25%",
         }}
