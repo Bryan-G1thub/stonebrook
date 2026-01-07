@@ -311,7 +311,7 @@ export default function OurOffering() {
                 Ready to start?
               </div>
               <div className="text-[#0A1628] group-hover:text-white text-lg sm:text-xl font-light mb-6 transition-colors">
-                Let's build something incredible
+                Let&apos;s build something incredible
               </div>
             </div>
             
