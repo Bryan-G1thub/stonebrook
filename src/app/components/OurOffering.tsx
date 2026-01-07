@@ -1,284 +1,583 @@
 "use client";
-import React from "react";
-import Link from "next/link";
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Zap, Target, Sparkles, Code2 } from 'lucide-react';
+import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
 
 export default function OurOffering() {
-  return (
-    <section className="w-full py-24 px-4 bg-gradient-to-b from-white to-gray-50" id="offering">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">What We Deliver</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Modern, clean websites built efficiently for small businesses that care about results.</p>
-        </div>
+  // Same fonts as Hero for perfect sync
+  const fonts = [
+    { family: "'Bebas Neue', sans-serif", text: 'STONEBROOK' },
+    { family: "'Orbitron', sans-serif", text: 'STONEBROOK' },
+    { family: "'Rubik Spray Paint', cursive", text: 'STONEBROOK' }, // Urban graffiti
+    { family: "'Righteous', sans-serif", text: 'STONEBROOK' },
+    { family: "'Audiowide', sans-serif", text: 'STONEBROOK' },
+    { family: "'Creepster', cursive", text: 'STONEBROOK' },
+    { family: "'Monoton', cursive", text: 'STONEBROOK' },
+    { family: "'Fira Code', monospace", text: 'STONEBROOK' },
+  ];
 
-        {/* Modern Split Design */}
-        <div className="relative mb-32 overflow-hidden">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-3xl"></div>
+  // Duplicate for seamless loop
+  const duplicatedFonts = [...fonts, ...fonts, ...fonts];
+
+  const metrics = [
+    { value: '<0.8s', label: 'Load Time', sublabel: 'Average first paint' },
+    { value: '98+', label: 'Performance', sublabel: 'Lighthouse score' },
+    { value: '3.2x', label: 'Conversions', sublabel: 'Average increase' },
+    { value: '100%', label: 'Mobile-First', sublabel: 'Responsive by default' },
+  ];
+
+  const services = [
+    {
+      icon: Zap,
+      title: 'Performance Engineering',
+      description: 'Sub-second load times, optimized assets, and intelligent caching strategies that convert.',
+      stat: '40% faster',
+      color: 'from-blue-500/20 to-cyan-500/20',
+    },
+    {
+      icon: Target,
+      title: 'Conversion Architecture',
+      description: 'Every element strategically designed to guide users toward action and maximize ROI.',
+      stat: '3.2x growth',
+      color: 'from-purple-500/20 to-pink-500/20',
+    },
+    {
+      icon: Sparkles,
+      title: 'Experience Design',
+      description: 'Pixel-perfect interfaces with micro-interactions that delight and engage your audience.',
+      stat: '95% satisfaction',
+      color: 'from-emerald-500/20 to-teal-500/20',
+    },
+    {
+      icon: Code2,
+      title: 'Technical Excellence',
+      description: 'Clean, scalable code built with modern frameworks. SEO-optimized and future-proof.',
+      stat: 'A+ grade',
+      color: 'from-orange-500/20 to-amber-500/20',
+    },
+  ];
+
+  return (
+    <section className="relative bg-white py-32 px-4 sm:px-8 overflow-hidden" id="offering">
+      {/* Top Marquee - Transparent Blue (synced with Hero bottom marquee) */}
+      <div className="absolute top-0 left-0 right-0 h-14 overflow-hidden border-b border-[#2a6f8f]/10">
+        <motion.div
+          animate={{ x: [0, -1920] }}
+          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+          className="flex items-center h-full gap-12 whitespace-nowrap"
+          style={{ width: 'max-content' }}
+        >
+          {duplicatedFonts.map((font, i) => (
+            <span
+              key={i}
+              className="text-[#2a6f8f]/25 text-2xl"
+              style={{ fontFamily: font.family }}
+            >
+              {font.text}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, #0A1628 1px, transparent 0)`,
+          backgroundSize: '40px 40px',
+        }} />
+      </div>
+
+      <div className="max-w-[1600px] mx-auto relative">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-24"
+        >
+          <div className="inline-block mb-6">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="h-[1px] bg-gradient-to-r from-[#0A1628] to-transparent mb-4"
+            />
+            <span className="text-sm tracking-[0.3em] text-[#0A1628]/60 uppercase">What We Deliver</span>
+          </div>
           
-          {/* Split container */}
-          <div className="relative p-8 pb-16 min-h-[600px]">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 h-full items-center">
-              
-              {/* Left side - Modern Illustration */}
-              <div className="relative flex justify-center lg:justify-start">
-                {/* Modern website illustration */}
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto lg:mx-0">
-                  {/* Main browser window */}
-                  <div className="absolute inset-0 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
-                    {/* Browser header */}
-                    <div className="h-6 sm:h-8 bg-gray-100 flex items-center px-3 sm:px-4 space-x-1 sm:space-x-2">
-                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
-                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full"></div>
-                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full"></div>
-                      <div className="flex-1"></div>
-                      <div className="w-20 sm:w-32 h-3 sm:h-4 bg-gray-200 rounded-full"></div>
-                    </div>
-                    
-                    {/* Content area */}
-                    <div className="p-3 sm:p-4 lg:p-6">
-                      {/* Header with logo and navigation */}
-                      <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
-                        <div className="flex items-center space-x-2 sm:space-x-3">
-                          <div className="w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-[#2C3E50] to-[#34495e] rounded-lg flex items-center justify-center">
-                            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="w-10 sm:w-16 h-3 sm:h-4 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded"></div>
-                        </div>
-                        <div className="flex space-x-1 sm:space-x-2">
-                          <div className="w-4 h-1.5 sm:w-6 sm:h-2 bg-gray-300 rounded"></div>
-                          <div className="w-4 h-1.5 sm:w-6 sm:h-2 bg-gray-300 rounded"></div>
-                          <div className="w-4 h-1.5 sm:w-6 sm:h-2 bg-gray-300 rounded"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Hero section with image */}
-                      <div className="mb-3 sm:mb-4 lg:mb-6">
-                        <div className="h-3 sm:h-4 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded-full w-3/4 mb-1 sm:mb-2"></div>
-                        <div className="h-2 sm:h-3 bg-gray-300 rounded-full w-full mb-2 sm:mb-4"></div>
-                        <div className="relative mb-2 sm:mb-4">
-                          <div className="w-full h-12 sm:h-16 lg:h-20 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg flex items-center justify-center border border-gray-200">
-                            <div className="grid grid-cols-4 gap-1">
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-300 rounded"></div>
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-300 rounded"></div>
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-indigo-300 rounded"></div>
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-300 rounded"></div>
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-300 rounded"></div>
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-indigo-300 rounded"></div>
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-300 rounded"></div>
-                              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-300 rounded"></div>
-                            </div>
-                          </div>
-                          <div className="absolute top-1 right-1 sm:top-2 sm:right-2 w-3 h-3 sm:w-5 sm:h-5 bg-white rounded-full flex items-center justify-center shadow-sm">
-                            <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-green-400 rounded-full"></div>
-                          </div>
-                        </div>
-                        <div className="flex space-x-1 sm:space-x-2">
-                          <div className="w-12 h-5 sm:w-16 sm:h-7 bg-gradient-to-r from-[#2C3E50] to-[#34495e] rounded-lg flex items-center justify-center">
-                            <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-white rounded-sm"></div>
-                          </div>
-                          <div className="w-8 h-5 sm:w-12 sm:h-7 border border-gray-300 rounded-lg flex items-center justify-center">
-                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-400 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Content grid with icons */}
-                      <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                        <div className="space-y-2 sm:space-y-3">
-                          <div className="flex items-center space-x-1 sm:space-x-2">
-                            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-blue-100 rounded flex items-center justify-center">
-                              <div className="w-1 h-1 sm:w-2 sm:h-2 bg-blue-500 rounded-full"></div>
-                            </div>
-                            <div className="flex-1">
-                              <div className="w-full h-1.5 sm:h-2 bg-gray-200 rounded mb-0.5 sm:mb-1"></div>
-                              <div className="w-2/3 h-1 sm:h-1.5 bg-gray-200 rounded"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="space-y-2 sm:space-y-3">
-                          <div className="flex items-center space-x-1 sm:space-x-2">
-                            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-purple-100 rounded flex items-center justify-center">
-                              <div className="w-1 h-1 sm:w-2 sm:h-2 bg-purple-500 rounded-full"></div>
-                            </div>
-                            <div className="flex-1">
-                              <div className="w-full h-1.5 sm:h-2 bg-gray-200 rounded mb-0.5 sm:mb-1"></div>
-                              <div className="w-2/3 h-1 sm:h-1.5 bg-gray-200 rounded"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Footer with stats */}
-                      <div className="mt-3 sm:mt-4 lg:mt-6 pt-2 sm:pt-3 lg:pt-4 border-t border-gray-100">
-                        <div className="flex justify-between items-center">
-                          <div className="flex items-center space-x-1 sm:space-x-2">
-                            <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-green-400 rounded-full animate-pulse"></div>
-                            <span className="text-xs text-gray-500">Live</span>
-                          </div>
-                          <div className="flex space-x-2 sm:space-x-3">
-                            <div className="text-center">
-                              <div className="text-xs font-semibold text-gray-700">2.1s</div>
-                              <div className="text-xs text-gray-400">Load</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="text-xs font-semibold text-gray-700">98%</div>
-                              <div className="text-xs text-gray-400">Score</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Floating performance badge */}
-                  <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg border border-gray-100">
-                    <div className="flex items-center space-x-1 sm:space-x-2">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-green-400 to-green-500 rounded-lg flex items-center justify-center">
-                        <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-xs font-semibold text-gray-700">Fast</div>
-                        <div className="text-xs text-gray-400">Performance</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Performance indicators */}
-                  <div className="absolute top-1/2 -right-4 sm:-right-8 transform -translate-y-1/2">
-                    <div className="flex flex-col space-y-1 sm:space-y-2">
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                    </div>
-                  </div>
-                  
-                  {/* Enhanced speed lines */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    <svg className="w-full h-full" viewBox="0 0 100 100">
-                      <defs>
-                        <linearGradient id="speedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#2C3E50" stopOpacity="0.4"/>
-                          <stop offset="50%" stopColor="#2C3E50" stopOpacity="0.6"/>
-                          <stop offset="100%" stopColor="#2C3E50" stopOpacity="0"/>
-                        </linearGradient>
-                      </defs>
-                      <path d="M 0 25 Q 50 25 100 25" stroke="url(#speedGradient)" strokeWidth="2" fill="none" strokeDasharray="2,3" className="animate-pulse"/>
-                      <path d="M 0 75 Q 50 75 100 75" stroke="url(#speedGradient)" strokeWidth="2" fill="none" strokeDasharray="2,3" className="animate-pulse" style={{animationDelay: '0.5s'}}/>
-                      <path d="M 0 50 Q 50 50 100 50" stroke="url(#speedGradient)" strokeWidth="1" fill="none" strokeDasharray="1,2" className="animate-pulse" style={{animationDelay: '1s'}}/>
-                    </svg>
-                  </div>
-                  
-                  {/* Ambient particles */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(6)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-0.5 h-0.5 sm:w-1 sm:h-1 bg-[#2C3E50]/30 rounded-full animate-pulse"
-                        style={{
-                          left: `${15 + (i * 12) % 70}%`,
-                          top: `${20 + (i * 10) % 60}%`,
-                          animationDelay: `${(i * 0.3) % 2}s`,
-                          animationDuration: `${2 + (i % 2)}s`
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#0A1628] font-light leading-[1.05] mb-8 max-w-5xl">
+            Websites that don't just look good.
+            <br />
+            <span 
+              className="italic bg-gradient-to-r from-[#2a6f8f] via-[#14a5aa] to-[#3a8fb7] bg-clip-text text-transparent" 
+              style={{ fontFamily: "var(--font-playfair-display), 'Playfair Display', serif" }}
+            >
+              They perform.
+            </span>
+          </h2>
+          
+          <p className="text-lg sm:text-xl text-[#0A1628]/60 font-light max-w-3xl leading-relaxed">
+            We engineer digital experiences that combine blazing performance with 
+            stunning aesthetics. Every project is optimized for speed, conversions, 
+            and lasting impact.
+          </p>
+        </motion.div>
+
+        {/* Metrics Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-24"
+        >
+          {metrics.map((metric, i) => (
+            <motion.div
+              key={metric.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="bg-gradient-to-br from-[#0A1628]/5 to-transparent border border-[#0A1628]/10 rounded-2xl p-6 sm:p-8 hover:border-[#0A1628]/30 transition-all duration-500 hover:shadow-xl">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#0A1628] mb-2">{metric.value}</div>
+                <div className="text-xs sm:text-sm font-medium text-[#0A1628] mb-1">{metric.label}</div>
+                <div className="text-xs text-[#0A1628]/50">{metric.sublabel}</div>
+                
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2a6f8f] to-[#14a5aa] rounded-b-2xl origin-left"
+                />
               </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Main Content Grid - Bento Style */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-24">
+          {/* Large Feature Card - Services */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="lg:col-span-8 bg-[#0A1628] rounded-3xl p-8 sm:p-12 overflow-hidden relative"
+          >
+            <div className="relative z-10">
+              <h3 className="text-3xl sm:text-4xl font-light text-white mb-8 sm:mb-12">
+                Our Core <span className="italic" style={{ fontFamily: "var(--font-playfair-display), 'Playfair Display', serif" }}>Expertise</span>
+              </h3>
               
-              {/* Right side - Messaging */}
-              <div className="text-center lg:text-left">
-                <div className="max-w-lg mx-auto lg:mx-0">
-                  {/* Main heading */}
-                  <h2 className="text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-6 leading-tight">
-                    Compact modern websites,{' '}
-                    <span className="bg-gradient-to-r from-[#2C3E50] to-[#34495e] bg-clip-text text-transparent">
-                      built to perform
-                    </span>
-                  </h2>
-                  
-                  {/* Description */}
-                  <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                    We create clean, fast websites that convert visitors into customers. 
-                    Every element is optimized for speed, clarity, and results.
-                  </p>
-                  
-                  {/* Modern Responsive Offerings Gallery */}
-                  <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-10 py-8 sm:py-12">
-                    {/* Blue icon circles only */}
-                    {[
-                      {
-                        icon: (
-                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                          </svg>
-                        ),
-                        title: "Mobile First",
-                        subtitle: "Responsive design"
-                      },
-                      {
-                        icon: (
-                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                        ),
-                        title: "Lightning Fast",
-                        subtitle: "Optimized performance"
-                      },
-                      {
-                        icon: (
-                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                          </svg>
-                        ),
-                        title: "SEO Ready",
-                        subtitle: "Search optimized"
-                      },
-                      {
-                        icon: (
-                          <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                          </svg>
-                        ),
-                        title: "Convert Ready",
-                        subtitle: "Lead generation"
-                      }
-                    ].map((item, i) => (
-                      <div
-                        key={i}
-                        className="flex flex-col items-center justify-center rounded-full bg-gradient-to-br from-[#2C3E50] to-[#34495e] w-36 h-36 sm:w-44 sm:h-44 lg:w-56 lg:h-56 shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 p-4 sm:p-5 lg:p-6"
-                      >
-                        <div className="mb-2 sm:mb-3 text-white flex items-center justify-center">
-                          {item.icon}
-                        </div>
-                        <h3 className="text-sm sm:text-base lg:text-xl font-bold text-white text-center mb-1 whitespace-normal break-words">{item.title}</h3>
-                        <p className="text-xs sm:text-sm lg:text-base text-white/90 text-center whitespace-normal break-words">{item.subtitle}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                {services.map((service, i) => (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group cursor-pointer"
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${service.color} backdrop-blur-sm`}>
+                        <service.icon className="w-5 h-5 text-white" />
                       </div>
-                    ))}
-                  </div>
-                  
-                  {/* CTA button */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <Link href="/contact" className="inline-flex items-center bg-[#2C3E50] text-white px-8 py-4 rounded-full hover:bg-[#1a2533] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                      Start Your Project
-                      <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                    <Link href="/#services" className="inline-flex items-center border-2 border-[#2C3E50] text-[#2C3E50] px-8 py-4 rounded-full hover:bg-[#2C3E50] hover:text-white transition-all duration-300">
-                      View Services
-                    </Link>
-                  </div>
-                </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="text-base sm:text-lg font-medium text-white">{service.title}</h4>
+                          <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                        </div>
+                        <p className="text-sm text-white/60 leading-relaxed mb-3">
+                          {service.description}
+                        </p>
+                        <div className="inline-block px-3 py-1 bg-white/10 rounded-full text-xs text-white/80">
+                          {service.stat}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
+
+            {/* Decorative gradient orbs */}
+            <div className="absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br from-[#2a6f8f] to-[#14a5aa] rounded-full blur-3xl opacity-20" />
+            <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-gradient-to-br from-[#1e4d6b] to-[#3a8fb7] rounded-full blur-3xl opacity-20" />
+          </motion.div>
+
+          {/* Interactive Card - NetworkVisualization */}
+          <NetworkVisualization />
         </div>
+
+        {/* Bottom Grid - Code + Stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Code Snippet Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="lg:col-span-5 bg-[#0A1628] rounded-3xl p-6 sm:p-8 overflow-hidden relative"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <div className="text-white/60 text-xs tracking-widest uppercase mb-2">Technical Stack</div>
+                <div className="text-white text-xl sm:text-2xl font-light">Modern & Fast</div>
+              </div>
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+              </div>
+            </div>
+            
+            <div className="bg-black/30 rounded-xl p-4 sm:p-6 font-mono text-xs sm:text-sm">
+              <div className="text-purple-400">const</div>
+              <div className="text-white ml-4">performance = {`{`}</div>
+              <div className="text-cyan-300 ml-8">framework: <span className="text-green-300">'React'</span>,</div>
+              <div className="text-cyan-300 ml-8">styling: <span className="text-green-300">'Tailwind'</span>,</div>
+              <div className="text-cyan-300 ml-8">optimization: <span className="text-green-300">'Extreme'</span>,</div>
+              <div className="text-cyan-300 ml-8">loadTime: <span className="text-orange-300">'&lt;800ms'</span></div>
+              <div className="text-white ml-4">{`}`};</div>
+            </div>
+          </motion.div>
+
+          {/* Color Palette Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="lg:col-span-4 bg-gradient-to-br from-[#0A1628] to-[#1e4d6b] rounded-3xl p-6 sm:p-8 relative overflow-hidden"
+          >
+            <div className="relative z-10">
+              <div className="text-white/60 text-xs tracking-widest uppercase mb-2">Design System</div>
+              <div className="text-white text-xl sm:text-2xl font-light mb-6">Color Palette</div>
+              
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { color: '#0A1628', name: 'Deep Navy', hex: '#0A1628' },
+                  { color: '#2a6f8f', name: 'Ocean Blue', hex: '#2a6f8f' },
+                  { color: '#14a5aa', name: 'Cyan Tide', hex: '#14a5aa' },
+                  { color: '#FFFFFF', name: 'Pure White', hex: '#FFFFFF' },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.hex}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-3"
+                  >
+                    <div 
+                      className="w-10 h-10 rounded-lg border border-white/20 shadow-lg"
+                      style={{ backgroundColor: item.color }}
+                    />
+                    <div>
+                      <div className="text-white text-xs font-medium">{item.name}</div>
+                      <div className="text-white/40 text-xs font-mono">{item.hex}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="lg:col-span-3 bg-white border-2 border-[#0A1628] rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:bg-[#0A1628] group transition-all duration-500 cursor-pointer relative overflow-hidden"
+          >
+            <div>
+              <div className="text-[#0A1628] group-hover:text-white text-xs tracking-widest uppercase mb-4 transition-colors">
+                Ready to start?
+              </div>
+              <div className="text-[#0A1628] group-hover:text-white text-xl sm:text-2xl font-light mb-8 transition-colors">
+                Let's build something incredible
+              </div>
+            </div>
+            
+            <Link href="/contact" className="flex items-center gap-2 text-[#0A1628] group-hover:text-white transition-colors">
+              <span className="text-sm font-medium">Get Started</span>
+              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Link>
+
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-[#2a6f8f]/0 to-[#14a5aa]/0 group-hover:from-[#2a6f8f]/20 group-hover:to-[#14a5aa]/20 transition-all duration-500"
+            />
+          </motion.div>
+        </div>
+
+        {/* Hashtags */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center text-[#0A1628]/30 text-sm font-light tracking-wider"
+        >
+          #PerformanceFirst #ConversionOptimized #PixelPerfect #WebExcellence
+        </motion.div>
       </div>
     </section>
   );
-} 
+}
+
+// Network Visualization Card - Microservices Architecture
+function NetworkVisualization() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const animationRef = useRef<number>();
+  const packetsRef = useRef<Array<{ 
+    from: number; 
+    to: number; 
+    progress: number; 
+    speed: number;
+  }>>([]);
+
+  // Define actual microservices architecture
+  const services = useRef([
+    // Client Layer
+    { x: 0.5, y: 0.15, label: 'Client', type: 'client', size: 8, color: '#3a8fb7' },
+    
+    // Load Balancer
+    { x: 0.5, y: 0.3, label: 'Load Balancer', type: 'infrastructure', size: 10, color: '#14a5aa' },
+    
+    // API Gateway
+    { x: 0.5, y: 0.45, label: 'API Gateway', type: 'gateway', size: 12, color: '#2a6f8f' },
+    
+    // Service Layer
+    { x: 0.25, y: 0.6, label: 'Auth', type: 'service', size: 9, color: '#14a5aa' },
+    { x: 0.5, y: 0.6, label: 'API', type: 'service', size: 11, color: '#14a5aa' },
+    { x: 0.75, y: 0.6, label: 'WebSocket', type: 'service', size: 8, color: '#14a5aa' },
+    
+    // Data Layer
+    { x: 0.2, y: 0.8, label: 'Cache', type: 'data', size: 9, color: '#3a8fb7' },
+    { x: 0.4, y: 0.8, label: 'Database', type: 'data', size: 11, color: '#3a8fb7' },
+    { x: 0.6, y: 0.8, label: 'Queue', type: 'data', size: 8, color: '#3a8fb7' },
+    { x: 0.8, y: 0.8, label: 'CDN', type: 'data', size: 9, color: '#3a8fb7' },
+  ]);
+
+  // Define connections (actual service dependencies)
+  const connections = useRef([
+    // Client → Load Balancer
+    { from: 0, to: 1 },
+    // Load Balancer → API Gateway
+    { from: 1, to: 2 },
+    // API Gateway → Services
+    { from: 2, to: 3 }, // Auth
+    { from: 2, to: 4 }, // API
+    { from: 2, to: 5 }, // WebSocket
+    // Services → Data Layer
+    { from: 3, to: 6 }, // Auth → Cache
+    { from: 3, to: 7 }, // Auth → Database
+    { from: 4, to: 6 }, // API → Cache
+    { from: 4, to: 7 }, // API → Database
+    { from: 4, to: 8 }, // API → Queue
+    { from: 5, to: 7 }, // WebSocket → Database
+    { from: 0, to: 9 }, // Client → CDN (static assets)
+  ]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Spawn data packets periodically
+    const spawnPacket = () => {
+      const connection = connections.current[Math.floor(Math.random() * connections.current.length)];
+      packetsRef.current.push({
+        from: connection.from,
+        to: connection.to,
+        progress: 0,
+        speed: 0.01 + Math.random() * 0.02,
+      });
+    };
+
+    const packetInterval = setInterval(spawnPacket, 800);
+
+    const animate = () => {
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+      
+      // Clear
+      ctx.fillStyle = '#0A1628';
+      ctx.fillRect(0, 0, width, height);
+
+      // Convert relative positions to absolute
+      const absoluteServices = services.current.map(s => ({
+        ...s,
+        absX: s.x * width,
+        absY: s.y * height,
+      }));
+
+      // Draw connections
+      connections.current.forEach(conn => {
+        const from = absoluteServices[conn.from];
+        const to = absoluteServices[conn.to];
+
+        ctx.beginPath();
+        ctx.moveTo(from.absX, from.absY);
+        ctx.lineTo(to.absX, to.absY);
+        ctx.strokeStyle = 'rgba(20, 165, 170, 0.15)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      });
+
+      // Update and draw packets
+      packetsRef.current = packetsRef.current.filter(packet => {
+        packet.progress += packet.speed;
+        
+        if (packet.progress >= 1) return false; // Remove completed packets
+
+        const from = absoluteServices[packet.from];
+        const to = absoluteServices[packet.to];
+        
+        const x = from.absX + (to.absX - from.absX) * packet.progress;
+        const y = from.absY + (to.absY - from.absY) * packet.progress;
+
+        // Draw packet glow
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, 8);
+        gradient.addColorStop(0, 'rgba(20, 165, 170, 0.8)');
+        gradient.addColorStop(0.5, 'rgba(20, 165, 170, 0.4)');
+        gradient.addColorStop(1, 'rgba(20, 165, 170, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Draw packet core
+        ctx.fillStyle = '#14a5aa';
+        ctx.beginPath();
+        ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        return true;
+      });
+
+      // Draw service nodes
+      absoluteServices.forEach((service, i) => {
+        const isHovered = Math.abs(mouseRef.current.x - service.absX) < 50 && 
+                         Math.abs(mouseRef.current.y - service.absY) < 50;
+
+        // Outer glow
+        const glowSize = isHovered ? service.size * 2 : service.size * 1.5;
+        const gradient = ctx.createRadialGradient(
+          service.absX, service.absY, 0, 
+          service.absX, service.absY, glowSize
+        );
+        gradient.addColorStop(0, `${service.color}cc`);
+        gradient.addColorStop(0.5, `${service.color}66`);
+        gradient.addColorStop(1, `${service.color}00`);
+        
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(service.absX, service.absY, glowSize, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Node ring
+        ctx.beginPath();
+        ctx.arc(service.absX, service.absY, service.size, 0, Math.PI * 2);
+        ctx.strokeStyle = service.color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Node fill
+        ctx.fillStyle = isHovered ? service.color : `${service.color}40`;
+        ctx.fill();
+
+        // Inner highlight
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.beginPath();
+        ctx.arc(service.absX - 2, service.absY - 2, 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Label
+        ctx.fillStyle = isHovered ? '#ffffff' : 'rgba(255, 255, 255, 0.7)';
+        ctx.font = `${isHovered ? '11px' : '10px'} -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillText(service.label, service.absX, service.absY + service.size + 8);
+      });
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      clearInterval(packetInterval);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseRef.current = {
+      x: (e.clientX - rect.left),
+      y: (e.clientY - rect.top),
+    };
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      viewport={{ once: true }}
+      className="lg:col-span-4 rounded-3xl overflow-hidden relative h-full min-h-[400px] bg-gradient-to-br from-[#0A1628] via-[#0d1a2e] to-[#0A1628] p-6 sm:p-8"
+      onMouseMove={handleMouseMove}
+    >
+      <div className="relative z-10 h-full flex flex-col">
+        {/* Header */}
+        <div className="mb-6">
+          <div className="text-white/60 text-xs tracking-widest uppercase mb-2">System Architecture</div>
+          <div className="text-white text-xl sm:text-2xl font-light">Microservices</div>
+        </div>
+
+        {/* Canvas */}
+        <div className="flex-1 relative rounded-xl overflow-hidden bg-[#0A1628]/50">
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 w-full h-full"
+          />
+        </div>
+
+        {/* Stats */}
+        <div className="mt-6 flex justify-between text-xs">
+          <div className="text-white/40">
+            <span className="text-[#14a5aa]">●</span> 10 Services
+          </div>
+          <div className="text-white/40">
+            Live Data Flow
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}

@@ -1,6 +1,7 @@
 "use client";
 import Hero from "./components/Hero";
 import OurOffering from "./components/OurOffering";
+import MediaCarousel from "./components/MediaCarousel";
 import Services from "./components/Services";
 import HowItWorks from "./components/HowItWorks";
 import Principles from "./components/Principles";
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="font-sans bg-[#f9f9f9] text-[#333] min-h-screen flex flex-col">
       <Hero />
       <OurOffering />
+      <MediaCarousel />
       <Services />
       <HowItWorks />
       <Principles />
