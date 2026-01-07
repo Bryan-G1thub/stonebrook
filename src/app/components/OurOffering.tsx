@@ -345,7 +345,7 @@ export default function OurOffering() {
 function NetworkVisualization() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
   const packetsRef = useRef<Array<{ 
     from: number; 
     to: number; 
