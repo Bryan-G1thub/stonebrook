@@ -34,7 +34,7 @@ export default function MediaCarousel() {
     };
   }, []);
 
-  const baseSpeed = 20;
+  const baseSpeed = 12;
   const speedMultiplier = 1 + scrollVelocity / 20;
   const effectiveSpeed = baseSpeed / speedMultiplier;
 
@@ -56,75 +56,184 @@ export default function MediaCarousel() {
     { type: 'text' as const, content: 'ART', color: '#0A1628' },
   ];
 
+  // Additional items for mobile layers 3 and 4
+  const items3 = [
+    { type: 'text' as const, content: 'DESIGN', color: '#0A1628' },
+    { type: 'image' as const, url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0' },
+    { type: 'text' as const, content: 'CREATE', color: '#0A1628' },
+    { type: 'image' as const, url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0' },
+    { type: 'text' as const, content: 'INNOVATE', color: '#0A1628' },
+    { type: 'image' as const, url: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0' },
+  ];
+
+  const items4 = [
+    { type: 'image' as const, url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0' },
+    { type: 'text' as const, content: 'BUILD', color: '#0A1628' },
+    { type: 'image' as const, url: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0' },
+    { type: 'text' as const, content: 'SHAPE', color: '#0A1628' },
+    { type: 'image' as const, url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0' },
+    { type: 'text' as const, content: 'DREAM', color: '#0A1628' },
+  ];
+
   // Duplicate items multiple times for seamless infinite loop
   const duplicatedItems1 = [...items1, ...items1, ...items1];
   const duplicatedItems2 = [...items2, ...items2, ...items2];
+  const duplicatedItems3 = [...items3, ...items3, ...items3];
+  const duplicatedItems4 = [...items4, ...items4, ...items4];
 
   return (
     <section ref={containerRef} className="relative bg-white py-48 overflow-hidden">
-      <motion.div 
-        animate={{ x: ['-33.333%', '0%'] }}
-        transition={{ 
-          duration: effectiveSpeed,
-          repeat: Infinity, 
-          ease: 'linear',
-          repeatType: 'loop'
-        }}
-        className="flex gap-12 mb-12"
-      >
-        {duplicatedItems1.map((item, index) => (
-          <div key={index} className="flex-shrink-0">
-            {item.type === 'text' ? (
-              <div 
-                className="text-[18rem] font-light leading-none whitespace-nowrap"
-                style={{ color: item.color }}
-              >
-                {item.content}
-              </div>
-            ) : (
-              <div className="w-[800px] h-[600px] relative overflow-hidden">
-                <img 
-                  src={item.url} 
-                  alt="" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )}
-          </div>
-        ))}
-      </motion.div>
+      {/* Layer 1 */}
+      <div className="overflow-hidden mb-6 md:mb-12">
+        <motion.div 
+          initial={{ x: '0%' }}
+          animate={{ x: '-33.333%' }}
+          transition={{ 
+            duration: effectiveSpeed,
+            repeat: Infinity, 
+            ease: 'linear',
+            repeatType: 'loop',
+            repeatDelay: 0
+          }}
+          style={{ willChange: 'transform' }}
+          className="flex gap-6 md:gap-12"
+        >
+          {duplicatedItems1.map((item, index) => (
+            <div key={index} className="flex-shrink-0">
+              {item.type === 'text' ? (
+                <div 
+                  className="text-[4rem] md:text-[8rem] font-light leading-none whitespace-nowrap"
+                  style={{ color: item.color }}
+                >
+                  {item.content}
+                </div>
+              ) : (
+                <div className="w-[200px] h-[150px] md:w-[400px] md:h-[300px] relative overflow-hidden rounded-xl">
+                  <img 
+                    src={item.url} 
+                    alt="" 
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </motion.div>
+      </div>
 
-      <motion.div 
-        animate={{ x: ['0%', '-33.333%'] }}
-        transition={{ 
-          duration: effectiveSpeed * 1.2,
-          repeat: Infinity, 
-          ease: 'linear',
-          repeatType: 'loop'
-        }}
-        className="flex gap-12"
-      >
-        {duplicatedItems2.map((item, index) => (
-          <div key={index} className="flex-shrink-0">
-            {item.type === 'text' ? (
-              <div 
-                className="text-[18rem] font-light leading-none whitespace-nowrap"
-                style={{ color: item.color }}
-              >
-                {item.content}
-              </div>
-            ) : (
-              <div className="w-[800px] h-[600px] relative overflow-hidden">
-                <img 
-                  src={item.url} 
-                  alt="" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )}
-          </div>
-        ))}
-      </motion.div>
+      {/* Layer 2 */}
+      <div className="overflow-hidden mb-6 md:mb-12">
+        <motion.div 
+          initial={{ x: '-33.333%' }}
+          animate={{ x: '0%' }}
+          transition={{ 
+            duration: effectiveSpeed * 1.2,
+            repeat: Infinity, 
+            ease: 'linear',
+            repeatType: 'loop',
+            repeatDelay: 0
+          }}
+          style={{ willChange: 'transform' }}
+          className="flex gap-6 md:gap-12"
+        >
+          {duplicatedItems2.map((item, index) => (
+            <div key={index} className="flex-shrink-0">
+              {item.type === 'text' ? (
+                <div 
+                  className="text-[4rem] md:text-[8rem] font-light leading-none whitespace-nowrap"
+                  style={{ color: item.color }}
+                >
+                  {item.content}
+                </div>
+              ) : (
+                <div className="w-[200px] h-[150px] md:w-[400px] md:h-[300px] relative overflow-hidden rounded-xl">
+                  <img 
+                    src={item.url} 
+                    alt="" 
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Layer 3 - Mobile Only */}
+      <div className="overflow-hidden mb-6 md:hidden">
+        <motion.div 
+          initial={{ x: '0%' }}
+          animate={{ x: '-33.333%' }}
+          transition={{ 
+            duration: effectiveSpeed * 0.9,
+            repeat: Infinity, 
+            ease: 'linear',
+            repeatType: 'loop',
+            repeatDelay: 0
+          }}
+          style={{ willChange: 'transform' }}
+          className="flex gap-6"
+        >
+          {duplicatedItems3.map((item, index) => (
+            <div key={index} className="flex-shrink-0">
+              {item.type === 'text' ? (
+                <div 
+                  className="text-[4rem] font-light leading-none whitespace-nowrap"
+                  style={{ color: item.color }}
+                >
+                  {item.content}
+                </div>
+              ) : (
+                <div className="w-[200px] h-[150px] relative overflow-hidden rounded-xl">
+                  <img 
+                    src={item.url} 
+                    alt="" 
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Layer 4 - Mobile Only */}
+      <div className="overflow-hidden md:hidden">
+        <motion.div 
+          initial={{ x: '-33.333%' }}
+          animate={{ x: '0%' }}
+          transition={{ 
+            duration: effectiveSpeed * 1.1,
+            repeat: Infinity, 
+            ease: 'linear',
+            repeatType: 'loop',
+            repeatDelay: 0
+          }}
+          style={{ willChange: 'transform' }}
+          className="flex gap-6"
+        >
+          {duplicatedItems4.map((item, index) => (
+            <div key={index} className="flex-shrink-0">
+              {item.type === 'text' ? (
+                <div 
+                  className="text-[4rem] font-light leading-none whitespace-nowrap"
+                  style={{ color: item.color }}
+                >
+                  {item.content}
+                </div>
+              ) : (
+                <div className="w-[200px] h-[150px] relative overflow-hidden rounded-xl">
+                  <img 
+                    src={item.url} 
+                    alt="" 
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </motion.div>
+      </div>
 
       <div className="absolute top-8 right-8 text-[#0A1628]/10 text-9xl font-light">
         01

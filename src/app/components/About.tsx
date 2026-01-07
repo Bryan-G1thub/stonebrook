@@ -22,31 +22,33 @@ export default function About() {
   }, []);
 
   return (
-    <section className="bg-[#0A1628] py-32 px-6 md:px-12 relative overflow-hidden" id="about">
+    <section className="bg-[#0A1628] py-16 md:py-32 px-6 md:px-12 relative overflow-hidden" id="about">
       {/* Cursor Followers */}
       <motion.div
-        className="absolute w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 blur-3xl pointer-events-none"
+        className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none"
         style={{
           left: positionRef.current.x,
           top: positionRef.current.y,
           translateX: "-50%",
           translateY: "-50%",
+          background: 'linear-gradient(to bottom right, rgba(42, 111, 143, 0.2), rgba(58, 143, 183, 0.2))',
         }}
       />
       <motion.div
-        className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-pink-500/20 to-yellow-500/20 blur-3xl pointer-events-none"
+        className="absolute w-64 h-64 rounded-full blur-3xl pointer-events-none"
         style={{
           left: positionRef.current.x,
           top: positionRef.current.y,
           translateX: "-25%",
           translateY: "-25%",
+          background: 'linear-gradient(to bottom right, rgba(13, 115, 119, 0.2), rgba(50, 205, 209, 0.2))',
         }}
       />
 
       {/* Artistic Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-400 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-400 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px]" style={{ backgroundColor: '#3a8fb7' }} />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px]" style={{ backgroundColor: '#32cdd1' }} />
       </div>
 
       {/* Grid Pattern Overlay */}
@@ -61,7 +63,7 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Main About Section */}
-        <div className="grid md:grid-cols-2 gap-24 items-center mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center mb-32">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -80,7 +82,7 @@ export default function About() {
               >
                 About{" "}
                 <span className="relative inline-block">
-                  <span className="italic text-blue-400">Us</span>
+                  <span className="italic" style={{ color: '#3a8fb7' }}>Us</span>
                   <motion.svg
                     className="absolute -bottom-2 left-0 w-full"
                     height="8"
@@ -99,8 +101,8 @@ export default function About() {
                     />
                     <defs>
                       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#60a5fa" />
-                        <stop offset="100%" stopColor="#3b82f6" />
+                        <stop offset="0%" stopColor="#2a6f8f" />
+                        <stop offset="100%" stopColor="#3a8fb7" />
                       </linearGradient>
                     </defs>
                   </motion.svg>
@@ -149,8 +151,8 @@ export default function About() {
             {/* Main Image with artistic frame */}
             <div className="relative">
               {/* Decorative corner elements */}
-              <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-cyan-400 rounded-tl-3xl" />
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-cyan-400 rounded-br-3xl" />
+              <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 rounded-tl-3xl" style={{ borderColor: '#32cdd1' }} />
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 rounded-br-3xl" style={{ borderColor: '#32cdd1' }} />
 
               <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/5] group border border-white/10">
                 <ImageWithFallback
@@ -176,8 +178,8 @@ export default function About() {
               style={{ transition: "y 3s ease-in-out infinite" }}
               className="absolute -left-6 top-24 bg-black/90 backdrop-blur-xl p-5 rounded-2xl border border-white/10 shadow-xl"
             >
-              <div className="w-11 h-11 bg-cyan-400/20 rounded-xl flex items-center justify-center mb-3 border border-cyan-400/30">
-                <Code2 className="w-5 h-5 text-cyan-400" />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{ backgroundColor: 'rgba(50, 205, 209, 0.2)', borderColor: 'rgba(50, 205, 209, 0.3)', borderWidth: '1px' }}>
+                <Code2 className="w-5 h-5" style={{ color: '#32cdd1' }} />
               </div>
               <div className="text-sm font-semibold text-white">Clean Code</div>
               <div className="text-xs text-gray-400">Crafted with precision</div>
@@ -192,8 +194,8 @@ export default function About() {
               style={{ transition: "y 4s ease-in-out infinite" }}
               className="absolute -right-6 bottom-32 bg-black/90 backdrop-blur-xl p-5 rounded-2xl border border-white/10 shadow-xl"
             >
-              <div className="w-11 h-11 bg-blue-400/20 rounded-xl flex items-center justify-center mb-3 border border-blue-400/30">
-                <Palette className="w-5 h-5 text-blue-400" />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{ backgroundColor: 'rgba(58, 143, 183, 0.2)', borderColor: 'rgba(58, 143, 183, 0.3)', borderWidth: '1px' }}>
+                <Palette className="w-5 h-5" style={{ color: '#3a8fb7' }} />
               </div>
               <div className="text-sm font-semibold text-white">Pixel Perfect</div>
               <div className="text-xs text-gray-400">Design excellence</div>
@@ -217,19 +219,17 @@ export default function About() {
                   cx="50"
                   cy="50"
                   r="40"
-                  stroke="currentColor"
+                  stroke="#32cdd1"
                   strokeWidth="1"
                   fill="none"
-                  className="text-cyan-400"
                 />
                 <circle
                   cx="50"
                   cy="50"
                   r="30"
-                  stroke="currentColor"
+                  stroke="#3a8fb7"
                   strokeWidth="1"
                   fill="none"
-                  className="text-blue-400"
                 />
               </svg>
             </motion.div>
@@ -242,7 +242,8 @@ export default function About() {
           <div className="absolute inset-0 h-[600px] overflow-hidden -z-10">
             {/* Minimalist Floating Frames */}
             <motion.div
-              className="absolute left-[15%] top-[20%] w-[400px] h-[300px] border border-cyan-400/30 rounded-2xl"
+              className="absolute left-[15%] top-[20%] w-[400px] h-[300px] border rounded-2xl"
+              style={{ borderColor: 'rgba(50, 205, 209, 0.3)' }}
               animate={{
                 rotate: [0, 5, 0],
                 y: [0, -20, 0],
@@ -255,7 +256,8 @@ export default function About() {
             />
 
             <motion.div
-              className="absolute right-[10%] top-[35%] w-[350px] h-[250px] border border-blue-400/30 rounded-2xl"
+              className="absolute right-[10%] top-[35%] w-[350px] h-[250px] border rounded-2xl"
+              style={{ borderColor: 'rgba(58, 143, 183, 0.3)' }}
               animate={{
                 rotate: [0, -8, 0],
                 y: [0, 30, 0],
@@ -269,7 +271,8 @@ export default function About() {
             />
 
             <motion.div
-              className="absolute left-[35%] bottom-[15%] w-[300px] h-[200px] border border-purple-400/20 rounded-2xl"
+              className="absolute left-[35%] bottom-[15%] w-[300px] h-[200px] border rounded-2xl"
+              style={{ borderColor: 'rgba(42, 111, 143, 0.2)' }}
               animate={{
                 rotate: [0, 3, 0],
                 y: [0, -15, 0],
@@ -284,7 +287,8 @@ export default function About() {
 
             {/* Gradient Orbs */}
             <motion.div
-              className="absolute left-[25%] top-[30%] w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400/40 to-blue-500/20 blur-2xl"
+              className="absolute left-[25%] top-[30%] w-32 h-32 rounded-full blur-2xl"
+              style={{ background: 'linear-gradient(to bottom right, rgba(50, 205, 209, 0.4), rgba(58, 143, 183, 0.2))' }}
               animate={{
                 scale: [1, 1.4, 1],
                 opacity: [0.4, 0.7, 0.4],
@@ -297,7 +301,8 @@ export default function About() {
             />
 
             <motion.div
-              className="absolute right-[30%] bottom-[25%] w-40 h-40 rounded-full bg-gradient-to-br from-blue-500/35 to-purple-500/15 blur-2xl"
+              className="absolute right-[30%] bottom-[25%] w-40 h-40 rounded-full blur-2xl"
+              style={{ background: 'linear-gradient(to bottom right, rgba(58, 143, 183, 0.35), rgba(42, 111, 143, 0.15))' }}
               animate={{
                 scale: [1, 1.5, 1],
                 opacity: [0.35, 0.65, 0.35],
@@ -340,7 +345,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16 relative z-10"
           >
-            <h2 className="text-7xl md:text-9xl font-light text-white mb-12 leading-none">
+            <h2 className="text-5xl sm:text-7xl md:text-9xl font-light text-white mb-12 leading-none">
               Let&apos;s Create
               <br />
               Something
@@ -348,21 +353,17 @@ export default function About() {
               Extraordinary
             </h2>
 
-            {/* Hashtags */}
-            <div className="flex flex-wrap justify-center gap-4 mb-16">
-              {["#design", "#innovation", "#awwwards", "#webgl", "#creative", "#digital"].map((tag, index) => (
-                <motion.span
-                  key={tag}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="px-6 py-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-white/70 text-sm hover:bg-white/10 transition-all duration-300 cursor-pointer"
-                >
-                  {tag}
-                </motion.span>
-              ))}
-            </div>
+            {/* Small italic design text */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-white/50 text-sm md:text-base italic font-light mb-16"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Where digital craftsmanship meets artistic vision
+            </motion.p>
 
             {/* CTA Button */}
             <motion.button

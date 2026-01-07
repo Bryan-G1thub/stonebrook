@@ -1,5 +1,5 @@
 "use client";
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 // CHOOSE YOUR MARQUEE STYLE - uncomment one of these:
 type MarqueeStyle = 'single' | 'double' | 'minimal';
@@ -10,7 +10,7 @@ export default function Hero() {
   const fonts = [
     { family: "'Bebas Neue', sans-serif", text: 'STONEBROOK' }, // Bold caps
     { family: "'Orbitron', sans-serif", text: 'STONEBROOK' }, // Robotic
-    { family: "'Permanent Marker', cursive", text: 'Stonebrook' }, // Graffiti-style
+    { family: "'Rubik Spray Paint', cursive", text: 'STONEBROOK' }, // Urban graffiti
     { family: "'Righteous', sans-serif", text: 'STONEBROOK' }, // Retro
     { family: "'Audiowide', sans-serif", text: 'STONEBROOK' }, // Tech/futuristic
     { family: "'Creepster', cursive", text: 'STONEBROOK' }, // Horror/dramatic
@@ -113,9 +113,9 @@ export default function Hero() {
       </svg>
 
       {/* Artistic content with poetry */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         {/* Left side - Main title */}
-        <div className="col-span-1 lg:col-span-7">
+        <div className="md:col-span-7">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,10 +132,10 @@ export default function Hero() {
             </motion.div>
             
             <h1 
-              className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-[110px] font-light tracking-tight leading-[0.9] mb-6"
+              className="text-white text-5xl md:text-7xl lg:text-[110px] font-light tracking-tight leading-[0.9] mb-6"
               style={{ 
                 mixBlendMode: 'difference',
-                fontFamily: "var(--font-playfair-display), 'Playfair Display', serif"
+                fontFamily: "'Playfair Display', serif"
               }}
             >
               Where Form
@@ -154,14 +154,14 @@ export default function Hero() {
                 className="text-white/70 text-sm font-light italic"
                 style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.2)' }}
               >
-                Design is the silent ambassador of your brand
+                "Design is the silent ambassador of your brand"
               </p>
             </motion.div>
           </motion.div>
         </div>
 
         {/* Right side - Details */}
-        <div className="col-span-1 lg:col-span-5 space-y-8">
+        <div className="col-span-5 space-y-8">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -236,7 +236,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 4 }}
-        className="absolute bottom-20 left-4 sm:left-12 text-white/40 text-xs font-light tracking-wider z-20"
+        className="absolute bottom-20 left-12 text-white/40 text-xs font-light tracking-wider z-20"
       >
         #ArtisticCode #DigitalCraftsmanship #FluidDesign #Stonebrook
       </motion.div>
@@ -246,7 +246,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 4.2 }}
-        className="absolute bottom-20 right-4 sm:right-12 z-20"
+        className="absolute bottom-20 right-12 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

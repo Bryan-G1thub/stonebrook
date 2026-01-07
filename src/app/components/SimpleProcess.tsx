@@ -56,7 +56,7 @@ export default function SimpleProcess() {
   ];
 
   return (
-    <section className="bg-white py-32 px-8">
+    <section className="bg-white py-16 md:py-32 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -69,13 +69,13 @@ export default function SimpleProcess() {
           <div className="text-sm text-gray-400 mb-4 tracking-[0.3em] font-light">
             PROCESS
           </div>
-          <h2 className="text-6xl md:text-7xl font-light text-[#0A1628]">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-light text-[#0A1628]">
             How We Work
           </h2>
         </motion.div>
 
         {/* Steps */}
-        <div className="space-y-32">
+        <div className="space-y-12 md:space-y-20">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -100,9 +100,41 @@ export default function SimpleProcess() {
                 >
                   {/* Number and Icon */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="text-6xl font-light text-[#0A1628]/20">
-                      {step.number}
-                    </div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="relative"
+                    >
+                      {/* Robotic countdown number - deep blue gradient */}
+                      <div 
+                        className="text-5xl md:text-6xl font-bold tracking-wider leading-none bg-gradient-to-br from-[#1e3a5f] via-[#2a4d7a] to-[#1e3a5f] bg-clip-text text-transparent"
+                        style={{ 
+                          fontFamily: "'Orbitron', 'Fira Code', monospace",
+                          textShadow: '0 0 10px rgba(30, 58, 95, 0.3), 0 0 20px rgba(42, 77, 122, 0.2)',
+                          letterSpacing: '0.15em',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                        }}
+                      >
+                        {step.number}
+                      </div>
+                      
+                      {/* Subtle animated scan line effect */}
+                      <motion.div
+                        animate={{
+                          y: [0, 50, 0],
+                          opacity: [0, 0.2, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        className="absolute inset-0 bg-gradient-to-b from-transparent via-[#2a4d7a]/15 to-transparent pointer-events-none"
+                      />
+                    </motion.div>
                     <div className="w-14 h-14 rounded-2xl bg-[#0A1628] flex items-center justify-center">
                       <step.icon className="w-7 h-7 text-white" />
                     </div>
@@ -149,7 +181,7 @@ export default function SimpleProcess() {
                   viewport={{ once: true }}
                   className={`group relative ${
                     step.customGraphic
-                      ? "rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 min-h-[600px] flex items-center justify-center"
+                      ? "rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center"
                       : "rounded-3xl overflow-hidden aspect-[4/3]"
                   }`}
                 >

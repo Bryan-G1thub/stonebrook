@@ -60,7 +60,7 @@ export default function OurOffering() {
 
   return (
     <section className="relative bg-white py-32 px-4 sm:px-8 overflow-hidden" id="offering">
-      {/* Top Marquee - Transparent Blue (synced with Hero bottom marquee) */}
+      {/* Top Marquee - Darker Text on White Background */}
       <div className="absolute top-0 left-0 right-0 h-14 overflow-hidden border-b border-[#2a6f8f]/10">
         <motion.div
           animate={{ x: [0, -1920] }}
@@ -71,7 +71,7 @@ export default function OurOffering() {
           {duplicatedFonts.map((font, i) => (
             <span
               key={i}
-              className="text-[#2a6f8f]/25 text-2xl"
+              className="text-gray-600/60 text-2xl"
               style={{ fontFamily: font.family }}
             >
               {font.text}
@@ -168,14 +168,14 @@ export default function OurOffering() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="lg:col-span-8 bg-[#0A1628] rounded-3xl p-8 sm:p-12 overflow-hidden relative"
+            className="lg:col-span-8 bg-[#0A1628] rounded-2xl p-6 sm:p-8 overflow-hidden relative"
           >
             <div className="relative z-10">
-              <h3 className="text-3xl sm:text-4xl font-light text-white mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl font-light text-white mb-6 sm:mb-8">
                 Our Core <span className="italic" style={{ fontFamily: "var(--font-playfair-display), 'Playfair Display', serif" }}>Expertise</span>
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
                 {services.map((service, i) => (
                   <motion.div
                     key={service.title}
@@ -185,19 +185,19 @@ export default function OurOffering() {
                     viewport={{ once: true }}
                     className="group cursor-pointer"
                   >
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className={`p-3 rounded-xl bg-gradient-to-br ${service.color} backdrop-blur-sm`}>
-                        <service.icon className="w-5 h-5 text-white" />
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className={`p-2.5 rounded-lg bg-gradient-to-br ${service.color} backdrop-blur-sm flex-shrink-0`}>
+                        <service.icon className="w-4 h-4 text-white" />
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-base sm:text-lg font-medium text-white">{service.title}</h4>
-                          <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <h4 className="text-sm sm:text-base font-medium text-white">{service.title}</h4>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-white/40 group-hover:text-white/80 transition-colors flex-shrink-0" />
                         </div>
-                        <p className="text-sm text-white/60 leading-relaxed mb-3">
+                        <p className="text-xs sm:text-sm text-white/60 leading-relaxed mb-2">
                           {service.description}
                         </p>
-                        <div className="inline-block px-3 py-1 bg-white/10 rounded-full text-xs text-white/80">
+                        <div className="inline-block px-2.5 py-1 bg-white/10 rounded-full text-xs text-white/80">
                           {service.stat}
                         </div>
                       </div>
@@ -224,21 +224,21 @@ export default function OurOffering() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="lg:col-span-5 bg-[#0A1628] rounded-3xl p-6 sm:p-8 overflow-hidden relative"
+            className="lg:col-span-5 bg-[#0A1628] rounded-2xl p-5 sm:p-6 overflow-hidden relative"
           >
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4">
               <div>
-                <div className="text-white/60 text-xs tracking-widest uppercase mb-2">Technical Stack</div>
-                <div className="text-white text-xl sm:text-2xl font-light">Modern & Fast</div>
+                <div className="text-white/60 text-xs tracking-widest uppercase mb-1">Technical Stack</div>
+                <div className="text-white text-lg sm:text-xl font-light">Modern & Fast</div>
               </div>
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
               </div>
             </div>
             
-            <div className="bg-black/30 rounded-xl p-4 sm:p-6 font-mono text-xs sm:text-sm">
+            <div className="bg-black/30 rounded-lg p-3 sm:p-4 font-mono text-xs">
               <div className="text-purple-400">const</div>
               <div className="text-white ml-4">performance = {`{`}</div>
               <div className="text-cyan-300 ml-8">
@@ -263,13 +263,13 @@ export default function OurOffering() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="lg:col-span-4 bg-gradient-to-br from-[#0A1628] to-[#1e4d6b] rounded-3xl p-6 sm:p-8 relative overflow-hidden"
+            className="lg:col-span-4 bg-gradient-to-br from-[#0A1628] to-[#1e4d6b] rounded-2xl p-5 sm:p-6 relative overflow-hidden"
           >
             <div className="relative z-10">
-              <div className="text-white/60 text-xs tracking-widest uppercase mb-2">Design System</div>
-              <div className="text-white text-xl sm:text-2xl font-light mb-6">Color Palette</div>
+              <div className="text-white/60 text-xs tracking-widest uppercase mb-1">Design System</div>
+              <div className="text-white text-lg sm:text-xl font-light mb-4">Color Palette</div>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5">
                 {[
                   { color: '#0A1628', name: 'Deep Navy', hex: '#0A1628' },
                   { color: '#2a6f8f', name: 'Ocean Blue', hex: '#2a6f8f' },
@@ -282,15 +282,15 @@ export default function OurOffering() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center gap-3"
+                    className="flex items-center gap-2.5"
                   >
                     <div 
-                      className="w-10 h-10 rounded-lg border border-white/20 shadow-lg"
+                      className="w-8 h-8 rounded-lg border border-white/20 shadow-lg flex-shrink-0"
                       style={{ backgroundColor: item.color }}
                     />
-                    <div>
+                    <div className="min-w-0">
                       <div className="text-white text-xs font-medium">{item.name}</div>
-                      <div className="text-white/40 text-xs font-mono">{item.hex}</div>
+                      <div className="text-white/40 text-[10px] font-mono">{item.hex}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -304,20 +304,20 @@ export default function OurOffering() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="lg:col-span-3 bg-white border-2 border-[#0A1628] rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:bg-[#0A1628] group transition-all duration-500 cursor-pointer relative overflow-hidden"
+            className="lg:col-span-3 bg-white border-2 border-[#0A1628] rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:bg-[#0A1628] group transition-all duration-500 cursor-pointer relative overflow-hidden"
           >
             <div>
-              <div className="text-[#0A1628] group-hover:text-white text-xs tracking-widest uppercase mb-4 transition-colors">
+              <div className="text-[#0A1628] group-hover:text-white text-xs tracking-widest uppercase mb-3 transition-colors">
                 Ready to start?
               </div>
-              <div className="text-[#0A1628] group-hover:text-white text-xl sm:text-2xl font-light mb-8 transition-colors">
-                Let’s build something incredible
+              <div className="text-[#0A1628] group-hover:text-white text-lg sm:text-xl font-light mb-6 transition-colors">
+                Let's build something incredible
               </div>
             </div>
             
             <Link href="/contact" className="flex items-center gap-2 text-[#0A1628] group-hover:text-white transition-colors">
               <span className="text-sm font-medium">Get Started</span>
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Link>
 
             <motion.div
