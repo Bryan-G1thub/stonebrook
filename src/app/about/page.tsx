@@ -155,35 +155,7 @@ export default function AboutPage() {
 
 
 
-      {/* CTA Section */}
-      <section className="w-full py-20 px-4 bg-gradient-to-br from-[#2C3E50] to-[#34495e]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Work Together?</h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Let&apos;s create something amazing. Your vision, our expertise, Brooklyn&apos;s spirit.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/contact" 
-              className="bg-white text-[#2C3E50] px-8 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold"
-            >
-              Start Your Project
-            </Link>
-            <Link 
-              href="/contact" 
-              className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-[#2C3E50] transition-all duration-300 font-semibold"
-            >
-              Get a Quote
-            </Link>
-            <Link 
-              href="/contact" 
-              className="border-2 border-white/50 text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300 font-semibold"
-            >
-              Schedule a Call
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section removed per design – handled in main About component on homepage */}
     </div>
   );
 } 

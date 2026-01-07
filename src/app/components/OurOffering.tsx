@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap, Target, Sparkles, Code2 } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 export default function OurOffering() {
   // Same fonts as Hero for perfect sync
@@ -109,7 +109,7 @@ export default function OurOffering() {
           </div>
           
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#0A1628] font-light leading-[1.05] mb-8 max-w-5xl">
-            Websites that don't just look good.
+            Websites that do not just look good.
             <br />
             <span 
               className="italic bg-gradient-to-r from-[#2a6f8f] via-[#14a5aa] to-[#3a8fb7] bg-clip-text text-transparent" 
@@ -241,10 +241,18 @@ export default function OurOffering() {
             <div className="bg-black/30 rounded-xl p-4 sm:p-6 font-mono text-xs sm:text-sm">
               <div className="text-purple-400">const</div>
               <div className="text-white ml-4">performance = {`{`}</div>
-              <div className="text-cyan-300 ml-8">framework: <span className="text-green-300">'React'</span>,</div>
-              <div className="text-cyan-300 ml-8">styling: <span className="text-green-300">'Tailwind'</span>,</div>
-              <div className="text-cyan-300 ml-8">optimization: <span className="text-green-300">'Extreme'</span>,</div>
-              <div className="text-cyan-300 ml-8">loadTime: <span className="text-orange-300">'&lt;800ms'</span></div>
+              <div className="text-cyan-300 ml-8">
+                framework: <span className="text-green-300">React</span>,
+              </div>
+              <div className="text-cyan-300 ml-8">
+                styling: <span className="text-green-300">Tailwind</span>,
+              </div>
+              <div className="text-cyan-300 ml-8">
+                optimization: <span className="text-green-300">Extreme</span>,
+              </div>
+              <div className="text-cyan-300 ml-8">
+                loadTime: <span className="text-orange-300">&lt;800ms</span>
+              </div>
               <div className="text-white ml-4">{`}`};</div>
             </div>
           </motion.div>
@@ -303,7 +311,7 @@ export default function OurOffering() {
                 Ready to start?
               </div>
               <div className="text-[#0A1628] group-hover:text-white text-xl sm:text-2xl font-light mb-8 transition-colors">
-                Let's build something incredible
+                Let’s build something incredible
               </div>
             </div>
             

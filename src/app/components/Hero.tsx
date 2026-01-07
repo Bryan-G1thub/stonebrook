@@ -154,7 +154,7 @@ export default function Hero() {
                 className="text-white/70 text-sm font-light italic"
                 style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.2)' }}
               >
-                "Design is the silent ambassador of your brand"
+                Design is the silent ambassador of your brand
               </p>
             </motion.div>
           </motion.div>
