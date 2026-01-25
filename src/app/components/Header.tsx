@@ -9,15 +9,25 @@ import Link from "next/link";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    
     const updateScrolled = () => {
       setScrolled(window.scrollY > 100);
     };
 
+    // Set initial scroll state
+    updateScrolled();
+
     window.addEventListener("scroll", updateScrolled);
     return () => window.removeEventListener("scroll", updateScrolled);
-  }, []);
+  }, [isMounted]);
 
   const navItems = [
     { label: "Work", href: "/" },
@@ -33,7 +43,7 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ delay: 2, duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6 md:py-8 transition-all duration-500 overflow-x-hidden ${
-          scrolled ? "bg-white/95 backdrop-blur-lg shadow-lg" : "bg-transparent"
+          isMounted && scrolled ? "bg-white/95 backdrop-blur-lg shadow-lg" : "bg-transparent"
         }`}
       >
         <div className="grid grid-cols-[1fr_auto_1fr] items-center max-w-[1600px] mx-auto w-full gap-4 px-0">
@@ -42,7 +52,7 @@ export default function Header() {
             {/* Desktop Left Nav */}
             <div
               className={`hidden md:flex gap-12 text-sm font-light tracking-wider transition-colors duration-500 ${
-                scrolled ? "text-[#0A1628]" : "text-white"
+                isMounted && scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
               {["Work", "Studio"].map((item, i) => {
@@ -57,7 +67,7 @@ export default function Header() {
                     <Link
                       href={navItem?.href || "#"}
                       className={`transition-colors uppercase ${
-                        scrolled
+                        isMounted && scrolled
                           ? "hover:text-[#0A1628]/60"
                           : "hover:text-white/60"
                       }`}
@@ -73,7 +83,7 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`md:hidden w-6 h-6 flex items-center justify-center transition-colors duration-500 ${
-                scrolled ? "text-[#0A1628]" : "text-white"
+                isMounted && scrolled ? "text-[#0A1628]" : "text-white"
               }`}
               aria-label="Toggle menu"
             >
@@ -91,7 +101,7 @@ export default function Header() {
             <Link href="/" className="relative block">
               <div
                 className={`text-xl md:text-3xl font-light tracking-[0.2em] md:tracking-[0.3em] italic transition-colors duration-500 whitespace-nowrap ${
-                  scrolled ? "text-[#0A1628]" : "text-white"
+                  isMounted && scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
@@ -101,7 +111,7 @@ export default function Header() {
                 animate={{ scaleX: [0, 1, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className={`absolute -bottom-2 left-0 right-0 h-[1px] transition-all duration-500 ${
-                  scrolled
+                  isMounted && scrolled
                     ? "bg-gradient-to-r from-transparent via-[#0A1628] to-transparent"
                     : "bg-gradient-to-r from-transparent via-white to-transparent"
                 }`}
@@ -114,7 +124,7 @@ export default function Header() {
             {/* Desktop Right Nav */}
             <div
               className={`hidden md:flex gap-12 text-sm font-light tracking-wider transition-colors duration-500 ${
-                scrolled ? "text-[#0A1628]" : "text-white"
+                isMounted && scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
               {["Approach", "Contact"].map((item, i) => {
@@ -129,7 +139,7 @@ export default function Header() {
                     <Link
                       href={navItem?.href || "#"}
                       className={`transition-colors uppercase ${
-                        scrolled
+                        isMounted && scrolled
                           ? "hover:text-[#0A1628]/60"
                           : "hover:text-white/60"
                       }`}
@@ -156,7 +166,7 @@ export default function Header() {
         }}
         transition={{ duration: 0.3 }}
         className={`fixed top-0 left-0 right-0 bottom-0 z-40 md:hidden ${
-          scrolled ? "bg-white" : "bg-[#0A1628]"
+          isMounted && scrolled ? "bg-white" : "bg-[#0A1628]"
         } ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         <div className="flex flex-col items-center justify-center min-h-screen w-full gap-8">
@@ -174,7 +184,7 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`text-2xl font-light tracking-wider uppercase text-center ${
-                  scrolled ? "text-[#0A1628]" : "text-white"
+                  isMounted && scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >
                 {item.label}
