@@ -486,7 +486,7 @@ function NetworkVisualization() {
       });
 
       // Draw service nodes
-      absoluteServices.forEach((service, i) => {
+      absoluteServices.forEach((service) => {
         const isHovered = Math.abs(mouseRef.current.x - service.absX) < 50 && 
                          Math.abs(mouseRef.current.y - service.absY) < 50;
 

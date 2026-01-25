@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function MediaCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -115,9 +116,11 @@ export default function MediaCarousel() {
                 </div>
               ) : (
                 <div className="w-[200px] h-[150px] md:w-[400px] md:h-[300px] relative overflow-hidden rounded-xl">
-                  <img 
+                  <Image 
                     src={item.url} 
                     alt="" 
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
@@ -153,9 +156,11 @@ export default function MediaCarousel() {
                 </div>
               ) : (
                 <div className="w-[200px] h-[150px] md:w-[400px] md:h-[300px] relative overflow-hidden rounded-xl">
-                  <img 
+                  <Image 
                     src={item.url} 
                     alt="" 
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
