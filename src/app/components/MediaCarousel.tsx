@@ -196,9 +196,11 @@ export default function MediaCarousel() {
                 </div>
               ) : (
                 <div className="w-[200px] h-[150px] relative overflow-hidden rounded-xl">
-                  <img 
+                  <Image 
                     src={item.url} 
                     alt="" 
+                    width={200}
+                    height={150}
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
@@ -234,9 +236,11 @@ export default function MediaCarousel() {
                 </div>
               ) : (
                 <div className="w-[200px] h-[150px] relative overflow-hidden rounded-xl">
-                  <img 
+                  <Image 
                     src={item.url} 
                     alt="" 
+                    width={200}
+                    height={150}
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
