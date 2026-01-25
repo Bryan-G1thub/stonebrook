@@ -5,11 +5,17 @@ import { useRef, useEffect, useState } from 'react';
 export default function MediaCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollVelocity, setScrollVelocity] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const lastScrollY = useRef(0);
   const velocityDecay = useRef<number | null>(null);
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!isMounted) return;
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const velocity = Math.abs(currentScrollY - lastScrollY.current);
@@ -32,11 +38,11 @@ export default function MediaCarousel() {
         clearTimeout(velocityDecay.current);
       }
     };
-  }, []);
+  }, [isMounted]);
 
   const baseSpeed = 12;
   const speedMultiplier = 1 + scrollVelocity / 20;
-  const effectiveSpeed = baseSpeed / speedMultiplier;
+  const effectiveSpeed = isMounted ? baseSpeed / speedMultiplier : baseSpeed;
 
   const items1 = [
     { type: 'text' as const, content: 'BOLD', color: '#0A1628' },
