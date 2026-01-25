@@ -1,25 +1,39 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Code2, Palette } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 
 export default function About() {
-  const mouseX = useRef(0);
-  const mouseY = useRef(0);
-  const positionRef = useRef({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Generate random positions and delays only once after mount
+  const dotPositions = useMemo(() => {
+    if (!isMounted) return Array(20).fill(null).map(() => ({ left: 0, top: 0, duration: 4, delay: 0 }));
+    return Array(20).fill(null).map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: 4 + Math.random() * 4,
+      delay: Math.random() * 4,
+    }));
+  }, [isMounted]);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.current = e.clientX;
-      mouseY.current = e.clientY;
-      positionRef.current = { x: e.clientX, y: e.clientY };
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [isMounted]);
 
   return (
     <section className="bg-[#0A1628] py-16 md:py-32 px-6 md:px-12 relative overflow-hidden" id="about">
@@ -27,8 +41,8 @@ export default function About() {
       <motion.div
         className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none"
         style={{
-          left: positionRef.current.x,
-          top: positionRef.current.y,
+          left: mousePosition.x,
+          top: mousePosition.y,
           translateX: "-50%",
           translateY: "-50%",
           background: 'linear-gradient(to bottom right, rgba(42, 111, 143, 0.2), rgba(58, 143, 183, 0.2))',
@@ -37,8 +51,8 @@ export default function About() {
       <motion.div
         className="absolute w-64 h-64 rounded-full blur-3xl pointer-events-none"
         style={{
-          left: positionRef.current.x,
-          top: positionRef.current.y,
+          left: mousePosition.x,
+          top: mousePosition.y,
           translateX: "-25%",
           translateY: "-25%",
           background: 'linear-gradient(to bottom right, rgba(13, 115, 119, 0.2), rgba(50, 205, 209, 0.2))',
@@ -316,23 +330,23 @@ export default function About() {
             />
 
             {/* Floating Dots */}
-            {[...Array(20)].map((_, i) => (
+            {dotPositions.map((dot, i) => (
               <motion.div
                 key={i}
                 className="absolute w-1 h-1 bg-white/60 rounded-full"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  left: `${dot.left}%`,
+                  top: `${dot.top}%`,
                 }}
                 animate={{
                   y: [0, -100, 0],
                   opacity: [0, 1, 0],
                 }}
                 transition={{
-                  duration: 4 + Math.random() * 4,
+                  duration: dot.duration,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: Math.random() * 4,
+                  delay: dot.delay,
                 }}
               />
             ))}
