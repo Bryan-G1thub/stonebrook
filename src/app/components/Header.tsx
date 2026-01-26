@@ -30,7 +30,6 @@ export default function Header() {
   }, [isMounted]);
 
   const navItems = [
-    { label: "Work", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Approach", href: "/#process" },
     { label: "Contact", href: "/contact" },
@@ -55,7 +54,7 @@ export default function Header() {
                 isMounted && scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
-              {["Work", "About Us"].map((item, i) => {
+              {["About Us"].map((item, i) => {
                 const navItem = navItems.find((n) => n.label === item);
                 return (
                   <motion.div
