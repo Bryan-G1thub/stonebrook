@@ -32,7 +32,7 @@ export default function Header() {
   const navItems = [
     { label: "Work", href: "/" },
     { label: "Studio", href: "/about" },
-    { label: "Approach", href: "/#how-it-works" },
+    { label: "Approach", href: "/#process" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -182,7 +182,21 @@ export default function Header() {
             >
               <Link
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  // Handle smooth scroll for anchor links
+                  if (item.href.startsWith('/#')) {
+                    e.preventDefault();
+                    const hash = item.href.substring(1);
+                    const element = document.querySelector(hash);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                      // If element not found, navigate to home page first
+                      window.location.href = item.href;
+                    }
+                  }
+                }}
                 className={`text-2xl font-light tracking-wider uppercase text-center ${
                   isMounted && scrolled ? "text-[#0A1628]" : "text-white"
                 }`}

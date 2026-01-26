@@ -56,7 +56,7 @@ export default function SimpleProcess() {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-32 px-4 sm:px-8">
+    <section className="bg-white py-16 md:py-32 px-4 sm:px-8" id="process">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
