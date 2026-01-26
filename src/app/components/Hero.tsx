@@ -231,12 +231,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Hashtags bottom left */}
+      {/* Hashtags bottom left - hidden on mobile */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 4 }}
-        className="absolute bottom-20 left-12 text-white/40 text-xs font-light tracking-wider z-20"
+        className="hidden md:block absolute bottom-20 left-12 text-white/40 text-xs font-light tracking-wider z-20"
       >
         #ArtisticCode #DigitalCraftsmanship #FluidDesign #Stonebrook
       </motion.div>
