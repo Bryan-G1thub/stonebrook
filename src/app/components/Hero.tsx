@@ -241,12 +241,12 @@ export default function Hero() {
         #ArtisticCode #DigitalCraftsmanship #FluidDesign #Stonebrook
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - hidden on mobile */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 4.2 }}
-        className="absolute bottom-20 right-12 z-20"
+        className="hidden md:block absolute bottom-20 right-12 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
