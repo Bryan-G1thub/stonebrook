@@ -31,7 +31,7 @@ export default function Header() {
 
   const navItems = [
     { label: "Work", href: "/" },
-    { label: "Studio", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Approach", href: "/#process" },
     { label: "Contact", href: "/contact" },
   ];
@@ -55,7 +55,7 @@ export default function Header() {
                 isMounted && scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
-              {["Work", "Studio"].map((item, i) => {
+              {["Work", "About Us"].map((item, i) => {
                 const navItem = navItems.find((n) => n.label === item);
                 return (
                   <motion.div
@@ -169,7 +169,7 @@ export default function Header() {
           isMounted && scrolled ? "bg-white" : "bg-[#0A1628]"
         } ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
-        <div className="flex flex-col items-center justify-center min-h-screen w-full gap-8">
+        <div className="flex flex-col items-center justify-center min-h-screen w-full gap-4">
           {navItems.map((item, i) => (
             <motion.div
               key={item.label}
@@ -197,7 +197,7 @@ export default function Header() {
                     }
                   }
                 }}
-                className={`text-2xl font-light tracking-wider uppercase text-center ${
+                className={`text-xl font-light tracking-wider uppercase text-center py-2 ${
                   isMounted && scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >
