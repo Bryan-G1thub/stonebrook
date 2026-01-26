@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Split Center Logo - Navigation splits left/right
 export default function Header() {
@@ -169,6 +170,50 @@ export default function Header() {
         } ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         <div className="flex flex-col items-center justify-center min-h-screen w-full gap-4">
+          {/* Logo/Icon at top */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: mobileMenuOpen ? 1 : 0,
+              y: mobileMenuOpen ? 0 : 20,
+            }}
+            transition={{ delay: 0 }}
+            className="mb-4"
+          >
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Image
+                src="/icon.png"
+                alt="Stonebrook"
+                width={60}
+                height={60}
+                className="rounded-lg"
+              />
+            </Link>
+          </motion.div>
+
+          {/* Home link */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: mobileMenuOpen ? 1 : 0,
+              y: mobileMenuOpen ? 0 : 20,
+            }}
+            transition={{ delay: 0.1 }}
+          >
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`text-xl font-light tracking-wider uppercase text-center py-2 ${
+                isMounted && scrolled ? "text-[#0A1628]" : "text-white"
+              }`}
+            >
+              Home
+            </Link>
+          </motion.div>
+
           {navItems.map((item, i) => (
             <motion.div
               key={item.label}
@@ -177,7 +222,7 @@ export default function Header() {
                 opacity: mobileMenuOpen ? 1 : 0,
                 y: mobileMenuOpen ? 0 : 20,
               }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: (i + 2) * 0.1 }}
             >
               <Link
                 href={item.href}
