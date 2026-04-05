@@ -97,10 +97,9 @@ export default function MediaCarousel() {
           animate={{ x: '-33.333%' }}
           transition={{ 
             duration: effectiveSpeed,
-            repeat: Infinity, 
-            ease: 'linear',
-            repeatType: 'loop',
-            repeatDelay: 0
+            repeat: Infinity,
+            ease: 'easeInOut',
+            repeatType: 'reverse',
           }}
           style={{ willChange: 'transform' }}
           className="flex gap-6 md:gap-12"
@@ -137,10 +136,9 @@ export default function MediaCarousel() {
           animate={{ x: '0%' }}
           transition={{ 
             duration: effectiveSpeed * 1.2,
-            repeat: Infinity, 
-            ease: 'linear',
-            repeatType: 'loop',
-            repeatDelay: 0
+            repeat: Infinity,
+            ease: 'easeInOut',
+            repeatType: 'reverse',
           }}
           style={{ willChange: 'transform' }}
           className="flex gap-6 md:gap-12"
@@ -177,10 +175,9 @@ export default function MediaCarousel() {
           animate={{ x: '-33.333%' }}
           transition={{ 
             duration: effectiveSpeed * 0.9,
-            repeat: Infinity, 
-            ease: 'linear',
-            repeatType: 'loop',
-            repeatDelay: 0
+            repeat: Infinity,
+            ease: 'easeInOut',
+            repeatType: 'reverse',
           }}
           style={{ willChange: 'transform' }}
           className="flex gap-6"
@@ -217,10 +214,9 @@ export default function MediaCarousel() {
           animate={{ x: '0%' }}
           transition={{ 
             duration: effectiveSpeed * 1.1,
-            repeat: Infinity, 
-            ease: 'linear',
-            repeatType: 'loop',
-            repeatDelay: 0
+            repeat: Infinity,
+            ease: 'easeInOut',
+            repeatType: 'reverse',
           }}
           style={{ willChange: 'transform' }}
           className="flex gap-6"
