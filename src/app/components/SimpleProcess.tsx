@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Phone, Code, Rocket } from "lucide-react";
+import Link from "next/link";
+import { Phone, Code, Rocket, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { PhoneGraphic } from "./PhoneGraphic";
 import { LaptopGraphic } from "./LaptopGraphic";
@@ -69,9 +70,16 @@ export default function SimpleProcess() {
           <div className="text-sm text-gray-400 mb-4 tracking-[0.3em] font-light">
             PROCESS
           </div>
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-light text-[#0A1628]">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-light text-[#0A1628] mb-10">
             How We Work
           </h2>
+          <Link
+            href="/tour"
+            className="inline-flex items-center gap-2 rounded-full border border-[#0A1628] px-8 py-3 text-sm font-light text-[#0A1628] tracking-wide hover:bg-[#0A1628] hover:text-white transition-colors duration-300 group"
+          >
+            See How It Works
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" aria-hidden />
+          </Link>
         </motion.div>
 
         {/* Steps */}

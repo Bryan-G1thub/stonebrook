@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 import { ArrowRight, Code2, Palette } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 
@@ -141,17 +142,19 @@ export default function About() {
               </p>
             </div>
 
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#0A1628] px-10 py-4 rounded-full flex items-center gap-3 group shadow-xl font-medium"
-            >
-              <span>Let&apos;s Collaborate</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            <Link href="/contact" className="inline-block">
+              <motion.span
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-[#0A1628] px-10 py-4 rounded-full flex items-center gap-3 group shadow-xl font-medium cursor-pointer"
+              >
+                <span>Let&apos;s Collaborate</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.span>
+            </Link>
           </motion.div>
 
           {/* Artistic Image Composition */}
