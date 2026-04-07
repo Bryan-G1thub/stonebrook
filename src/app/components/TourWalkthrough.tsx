@@ -2,81 +2,125 @@
 
 import { useId } from "react";
 import Link from "next/link";
-import { useScroll, useSpring, useTransform } from "framer-motion";
 import { motion } from "motion/react";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Calendar,
+  Camera,
+  CheckCircle2,
+  FormInput,
+  MapPin,
+  Search,
+  Smartphone,
+  Sparkles,
+} from "lucide-react";
+import { PhoneGraphic } from "./PhoneGraphic";
+import { LaptopGraphic } from "./LaptopGraphic";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
+const viewport = { once: true, amount: 0.5 } as const;
 
-const viewport = { once: true, amount: 0.4 } as const;
+type SlideTone = "dark" | "light" | "muted" | "dramatic";
 
-const phases = [
+const slides: {
+  key:
+    | "cost"
+    | "transform"
+    | "mobile"
+    | "features"
+    | "seo"
+    | "commitment"
+    | "cta";
+  kicker: string;
+  title: string;
+  titleAccent?: string;
+  sub?: string;
+  tone: SlideTone;
+}[] = [
   {
-    id: "discovery",
-    label: "DISCOVERY",
-    title: "We start with curiosity,",
-    titleItalic: "not a spreadsheet",
-    body: [
-      "Nobody wants to fill out a forty-field intake form. We sit down (or Zoom in—Brooklyn weather is unpredictable) and actually listen.",
-      "Your goals, your weird edge cases, what keeps you up at night—that’s the stuff we care about. By the end, we both know what “done” looks like.",
-    ],
-    theme: "light" as const,
+    key: "cost",
+    kicker: "THE QUIET COST",
+    title: "No site (or a bad one)",
+    titleAccent: "is expensive",
+    sub: "It’s not just aesthetics—it’s trust, calls, and sales you never get the chance to earn.",
+    tone: "dark",
   },
   {
-    id: "mockups",
-    label: "MOCKUPS",
-    title: "You see it",
-    titleItalic: "before it’s real",
-    body: [
-      "Real screens, real hierarchy, real copy placeholders that don’t say “Lorem ipsum” unless we’re being ironic.",
-      "If something feels off, we fix it while it’s still pixels—not after launch when everything is expensive and emotional.",
-    ],
-    theme: "muted" as const,
+    key: "transform",
+    kicker: "THE FLIP",
+    title: "A great site turns",
+    titleAccent: "maybe into yes",
+    sub: "Clear story. Clear next step. The kind of polish that makes people feel safe hitting “book.”",
+    tone: "dramatic",
   },
   {
-    id: "revisions",
-    label: "REVISIONS",
-    title: "Iteration isn’t a dirty word",
-    titleItalic: "here",
-    body: [
-      "We expect rounds. Design is a conversation, not a mic drop. Push back. Ask “what if.” We’re not precious—we’re trying to get it right with you.",
-      "Fair scope, clear feedback, zero guilt trips. That’s the deal.",
-    ],
-    theme: "light" as const,
+    key: "mobile",
+    kicker: "MOBILE FIRST",
+    title: "Looks right on",
+    titleAccent: "every screen",
+    sub: "Because your customers are probably standing outside your door… on their phone.",
+    tone: "muted",
   },
   {
-    id: "launch",
-    label: "LAUNCH",
-    title: "Flip the switch",
-    titleItalic: "without the cold sweat",
-    body: [
-      "Going live should feel exciting, not like defusing a bomb. We handle the boring technical bits—hosting hooks, checks, performance—so you can focus on telling people it exists.",
-      "Champagne optional. Deep breath included.",
-    ],
-    theme: "dark" as const,
+    key: "features",
+    kicker: "BUILT FOR LOCAL",
+    title: "Booking. Forms.",
+    titleAccent: "Galleries",
+    sub: "Practical features that actually help a small business run smoother—without bloat.",
+    tone: "light",
   },
   {
-    id: "support",
-    label: "SUPPORT",
-    title: "The internet breaks",
-    titleItalic: "sometimes",
-    body: [
-      "Typos, analytics mysteries, “why does this look weird on my cousin’s phone”—it happens. We’re still around after launch, without making you re-audit our entire process just to ask a question.",
-      "Low drama. Quick answers. Human beings on the other end.",
-    ],
-    theme: "muted" as const,
+    key: "seo",
+    kicker: "FINDABLE",
+    title: "Google can’t rank",
+    titleAccent: "what it can’t read",
+    sub: "Solid structure, speed, and basics that make you show up where customers are already searching.",
+    tone: "muted",
+  },
+  {
+    key: "commitment",
+    kicker: "OUR PROMISE",
+    title: "We ship fast.",
+    titleAccent: "We stick around",
+    sub: "Craft, communication, and momentum—without the agency fog machine.",
+    tone: "dark",
+  },
+  {
+    key: "cta",
+    kicker: "LOW PRESSURE",
+    title: "Want a site that",
+    titleAccent: "pulls its weight?",
+    sub: "Tell us what you do. We’ll tell you what we’d build—and how fast we’d ship it.",
+    tone: "light",
   },
 ];
 
-function TourBlobs({ variant }: { variant: "light" | "dark" }) {
-  const uid = useId().replace(/:/g, "");
-  const g1 = `tour-b1-${uid}`;
-  const g2 = `tour-b2-${uid}`;
-  const opacity = variant === "dark" ? 0.5 : 0.35;
+function GrainOverlay() {
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 opacity-[0.035] mix-blend-overlay"
+      style={{
+        backgroundImage: `url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")`,
+      }}
+      aria-hidden
+    />
+  );
+}
+
+function SlideBlobs({
+  uid,
+  intensity,
+}: {
+  uid: string;
+  intensity: number;
+}) {
+  const g1 = `tour-sb1-${uid}`;
+  const g2 = `tour-sb2-${uid}`;
   return (
     <svg
       className="absolute inset-0 w-full h-full pointer-events-none"
       viewBox="0 0 1000 1000"
+      preserveAspectRatio="xMidYMid slice"
       aria-hidden
     >
       <defs>
@@ -92,208 +136,310 @@ function TourBlobs({ variant }: { variant: "light" | "dark" }) {
         </linearGradient>
       </defs>
       <motion.circle
-        cx="200"
-        cy="400"
-        r="160"
+        cx="240"
+        cy="460"
+        r="200"
         fill={`url(#${g1})`}
-        opacity={opacity}
-        animate={{ cx: [200, 260, 200], cy: [400, 360, 400], r: [160, 190, 160] }}
+        opacity={0.32 * intensity}
+        animate={{ cx: [240, 300, 240], cy: [460, 410, 460], r: [200, 230, 200] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.circle
         cx="820"
         cy="520"
-        r="140"
+        r="160"
         fill={`url(#${g2})`}
-        opacity={opacity * 0.85}
-        animate={{ cx: [820, 760, 820], cy: [520, 580, 520], r: [140, 165, 140] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        opacity={0.25 * intensity}
+        animate={{ cx: [820, 760, 820], cy: [520, 590, 520], r: [160, 185, 160] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+      />
+      <motion.circle
+        cx="560"
+        cy="180"
+        r="90"
+        fill={`url(#${g2})`}
+        opacity={0.12 * intensity}
+        animate={{ cy: [180, 220, 180], opacity: [0.08 * intensity, 0.15 * intensity, 0.08 * intensity] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
     </svg>
   );
 }
 
-export default function TourWalkthrough() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-  const progressOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
+function toneClasses(tone: SlideTone) {
+  switch (tone) {
+    case "dark":
+      return {
+        section: "bg-[#0A1628] text-white",
+        kicker: "text-white/50",
+        sub: "text-white/70",
+        accent: "text-[#7eb8d6]",
+      };
+    case "dramatic":
+      return {
+        section: "bg-[#0c1f35] text-white",
+        kicker: "text-white/50",
+        sub: "text-white/75",
+        accent: "text-[#7eb8d6]",
+      };
+    case "muted":
+      return {
+        section: "bg-[#f4f4f2] text-[#0A1628]",
+        kicker: "text-gray-400",
+        sub: "text-gray-600",
+        accent: "text-[#3a8fb7]",
+      };
+    default:
+      return {
+        section: "bg-white text-[#0A1628]",
+        kicker: "text-gray-400",
+        sub: "text-gray-600",
+        accent: "text-[#3a8fb7]",
+      };
+  }
+}
+
+function FeaturePills() {
+  const items = [
+    { icon: Calendar, label: "Booking" },
+    { icon: FormInput, label: "Contact forms" },
+    { icon: Camera, label: "Galleries" },
+    { icon: MapPin, label: "Maps & hours" },
+    { icon: CheckCircle2, label: "Reviews" },
+  ];
 
   return (
-    <div className="relative bg-white">
-      <motion.div
-        className="fixed top-0 left-0 right-0 z-[100] h-0.5 origin-left bg-gradient-to-r from-[#2a6f8f] via-[#3a8fb7] to-[#32cdd1]"
-        style={{ scaleX, opacity: progressOpacity }}
-        aria-hidden
-      />
-
-      <main>
-        {/* Hero */}
-        <section
-          className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 md:px-12 bg-[#0A1628] text-white overflow-hidden"
-          aria-labelledby="tour-hero-heading"
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.2, ease: smoothEase }}
+      viewport={viewport}
+      className="mt-10 flex flex-wrap items-center justify-center gap-3"
+    >
+      {items.map((it) => (
+        <div
+          key={it.label}
+          className="inline-flex items-center gap-2 rounded-full border border-[#0A1628]/10 bg-white/70 px-4 py-2 text-sm font-light text-[#0A1628] backdrop-blur-sm"
         >
-          <TourBlobs variant="dark" />
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: smoothEase }}
-              className="text-sm text-white/50 mb-6 tracking-[0.35em] font-light"
-            >
-              STONEBROOK
-            </motion.p>
-            <motion.h1
-              id="tour-hero-heading"
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.12, ease: smoothEase }}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8"
-              style={{ fontFamily: "var(--font-playfair-display), 'Playfair Display', serif" }}
-            >
-              How we work,{" "}
-              <span className="italic text-white/90">for real</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.28, ease: smoothEase }}
-              className="text-lg md:text-xl text-white/65 font-light leading-relaxed max-w-2xl mx-auto mb-16"
-            >
-              No jargon tour. No “synergy.” Just the actual steps we take with clients—told like a founder at coffee, not a slide deck.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              className="flex flex-col items-center gap-2 text-white/40 text-sm font-light"
-            >
-              <span>Scroll</span>
-              <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <ArrowDown className="w-5 h-5" aria-hidden />
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+          <it.icon className="h-4 w-4 text-[#3a8fb7]" aria-hidden />
+          <span>{it.label}</span>
+        </div>
+      ))}
+    </motion.div>
+  );
+}
 
-        {/* Five phases */}
-        {phases.map((phase, index) => {
-          const bg =
-            phase.theme === "dark"
-              ? "bg-[#0A1628] text-white"
-              : phase.theme === "muted"
-                ? "bg-[#f9f9f9] text-[#0A1628]"
-                : "bg-white text-[#0A1628]";
-          const subtext =
-            phase.theme === "dark" ? "text-white/65" : "text-gray-600";
-          const labelCls =
-            phase.theme === "dark" ? "text-white/45" : "text-gray-400";
+function SeoCard() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.2, ease: smoothEase }}
+      viewport={viewport}
+      className="mt-10 mx-auto w-full max-w-2xl"
+    >
+      <div className="rounded-2xl border border-[#0A1628]/10 bg-white/70 p-5 md:p-6 backdrop-blur-sm">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0A1628]">
+            <Search className="h-5 w-5 text-white" aria-hidden />
+          </div>
+          <div className="flex-1">
+            <div className="h-10 w-full rounded-xl bg-[#0A1628]/5 px-4 flex items-center text-sm text-[#0A1628]/60 font-light">
+              “best coffee in brooklyn”
+            </div>
+          </div>
+        </div>
+        <div className="mt-5 space-y-3">
+          {[
+            "Fast pages (Core Web Vitals)",
+            "Clean headings + structure",
+            "Metadata + sitemap basics",
+          ].map((t, i) => (
+            <motion.div
+              key={t}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.55, delay: 0.25 + i * 0.08, ease: smoothEase }}
+              viewport={viewport}
+              className="flex items-center gap-3 text-sm text-gray-600 font-light"
+            >
+              <div className="h-2 w-2 rounded-full bg-[#3a8fb7]" />
+              {t}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function TourWalkthrough() {
+  const uid = useId().replace(/:/g, "");
+
+  return (
+    <main className="bg-white">
+      <div
+        className="h-[100dvh] w-full overflow-y-auto overscroll-y-contain scroll-smooth snap-y snap-mandatory"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        {slides.map((s) => {
+          const t = toneClasses(s.tone);
+          const blobIntensity =
+            s.tone === "dark" || s.tone === "dramatic" ? 1 : 0.6;
 
           return (
             <section
-              key={phase.id}
-              id={phase.id}
-              className={`relative min-h-[100dvh] flex items-center justify-center px-6 md:px-12 py-24 overflow-hidden ${bg}`}
-              aria-labelledby={`tour-${phase.id}-title`}
+              key={s.key}
+              id={s.key}
+              className={`relative min-h-[100dvh] snap-start flex items-center justify-center px-6 md:px-12 py-20 overflow-hidden ${t.section}`}
+              aria-labelledby={`tour-${s.key}-title`}
             >
-              {phase.theme === "dark" && <TourBlobs variant="dark" />}
-              <motion.div
-                className="relative z-10 max-w-3xl mx-auto w-full"
-                initial={{ opacity: 0, y: 48 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.85, ease: smoothEase }}
-                viewport={viewport}
-              >
+              <SlideBlobs uid={`${uid}-${s.key}`} intensity={blobIntensity} />
+              <GrainOverlay />
+
+              <div className="relative z-10 w-full max-w-6xl mx-auto">
                 <motion.p
-                  className={`text-sm mb-5 tracking-[0.3em] font-light ${labelCls}`}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.05, ease: smoothEase }}
+                  transition={{ duration: 0.7, ease: smoothEase }}
                   viewport={viewport}
+                  className={`text-xs tracking-[0.35em] font-light mb-6 ${t.kicker}`}
                 >
-                  {phase.label}{" "}
-                  <span className="tabular-nums opacity-60">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  {s.kicker}
                 </motion.p>
-                <motion.h2
-                  id={`tour-${phase.id}-title`}
-                  className="text-3xl sm:text-5xl md:text-6xl font-light leading-[1.1] mb-10"
-                  style={{ fontFamily: "var(--font-playfair-display), 'Playfair Display', serif" }}
+
+                <motion.h1
+                  id={`tour-${s.key}-title`}
                   initial={{ opacity: 0, y: 22 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.12, ease: smoothEase }}
+                  transition={{ duration: 0.85, delay: 0.05, ease: smoothEase }}
                   viewport={viewport}
+                  className="text-[clamp(2.6rem,6.6vw,5.6rem)] font-light leading-[0.95] tracking-tight"
+                  style={{
+                    fontFamily:
+                      "var(--font-playfair-display), 'Playfair Display', serif",
+                  }}
                 >
-                  {phase.title}{" "}
-                  <span className="italic" style={{ color: phase.theme === "dark" ? "#7eb8d6" : "#3a8fb7" }}>
-                    {phase.titleItalic}
-                  </span>
-                </motion.h2>
-                <div className={`space-y-6 text-lg md:text-xl font-light leading-relaxed ${subtext}`}>
-                  {phase.body.map((p, i) => (
-                    <motion.p
-                      key={i}
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.75, delay: 0.22 + i * 0.1, ease: smoothEase }}
+                  {s.title}{" "}
+                  {s.titleAccent ? (
+                    <span className={`italic ${t.accent}`}>{s.titleAccent}</span>
+                  ) : null}
+                </motion.h1>
+
+                {s.sub ? (
+                  <motion.p
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.75,
+                      delay: 0.14,
+                      ease: smoothEase,
+                    }}
+                    viewport={viewport}
+                    className={`mt-8 max-w-2xl text-lg md:text-xl font-light leading-relaxed ${t.sub}`}
+                  >
+                    {s.sub}
+                  </motion.p>
+                ) : null}
+
+                {/* Scene-specific visual showcases */}
+                {s.key === "mobile" ? (
+                  <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.8,
+                        delay: 0.18,
+                        ease: smoothEase,
+                      }}
                       viewport={viewport}
+                      className="rounded-3xl bg-white/60 border border-[#0A1628]/10 backdrop-blur-sm p-6 md:p-8 flex items-center justify-center min-h-[360px]"
                     >
-                      {p}
-                    </motion.p>
-                  ))}
-                </div>
-              </motion.div>
+                      <PhoneGraphic />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.8,
+                        delay: 0.22,
+                        ease: smoothEase,
+                      }}
+                      viewport={viewport}
+                      className="rounded-3xl bg-white/60 border border-[#0A1628]/10 backdrop-blur-sm p-6 md:p-8 flex items-center justify-center min-h-[360px]"
+                    >
+                      <LaptopGraphic />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.7,
+                        delay: 0.26,
+                        ease: smoothEase,
+                      }}
+                      viewport={viewport}
+                      className="lg:col-span-2 flex items-center justify-center gap-3 text-sm text-gray-600 font-light"
+                    >
+                      <Smartphone className="h-4 w-4 text-[#3a8fb7]" aria-hidden />
+                      Thumb-friendly. Fast. No weird zooming.
+                    </motion.div>
+                  </div>
+                ) : null}
+
+                {s.key === "features" ? <FeaturePills /> : null}
+                {s.key === "seo" ? <SeoCard /> : null}
+
+                {s.key === "commitment" ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.75,
+                      delay: 0.18,
+                      ease: smoothEase,
+                    }}
+                    viewport={viewport}
+                    className="mt-10 inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-3 text-sm font-light text-white/85"
+                  >
+                    <Sparkles className="h-4 w-4 text-white" aria-hidden />
+                    Fast shipping, clean handoff, real support.
+                  </motion.div>
+                ) : null}
+
+                {s.key === "cta" ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.18,
+                      ease: smoothEase,
+                    }}
+                    viewport={viewport}
+                    className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+                  >
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#0A1628] text-white px-10 py-4 text-sm font-medium tracking-wide hover:bg-[#152a45] transition-colors duration-300"
+                    >
+                      Let’s build yours
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </Link>
+                    <span className="text-sm text-gray-500 font-light">
+                      No pressure. If it’s not the right time, that’s fine too.
+                    </span>
+                  </motion.div>
+                ) : null}
+              </div>
             </section>
           );
         })}
 
-        {/* Closing CTA */}
-        <section
-          className="relative min-h-[70dvh] flex items-center justify-center px-6 md:px-12 py-28 bg-white border-t border-gray-100"
-          aria-labelledby="tour-cta-heading"
-        >
-          <motion.div
-            className="max-w-2xl mx-auto text-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: smoothEase }}
-            viewport={viewport}
-          >
-            <h2
-              id="tour-cta-heading"
-              className="text-3xl sm:text-4xl md:text-5xl font-light text-[#0A1628] mb-6 leading-tight"
-              style={{ fontFamily: "var(--font-playfair-display), 'Playfair Display', serif" }}
-            >
-              Still here?{" "}
-              <span className="italic text-[#3a8fb7]">Good.</span>
-            </h2>
-            <p className="text-lg text-gray-600 font-light leading-relaxed mb-4">
-              No pressure, no “book a call in the next ten minutes” nonsense. If this process sounds like your speed, tell us what you&apos;re building—we&apos;ll take it from there.
-            </p>
-            <p className="text-base text-gray-500 font-light mb-12">
-              Or don&apos;t. The site will still be here tomorrow. We&apos;re not going anywhere.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-[#0A1628] text-white px-10 py-4 text-sm font-medium tracking-wide hover:bg-[#152a45] transition-colors duration-300"
-              >
-                Say hello
-                <ArrowRight className="w-4 h-4" aria-hidden />
-              </Link>
-              <Link
-                href="/"
-                className="text-sm text-gray-500 font-light hover:text-[#0A1628] transition-colors underline underline-offset-4"
-              >
-                Back to home
-              </Link>
-            </div>
-          </motion.div>
-        </section>
-      </main>
-    </div>
+        {/* bottom spacer for snap comfort on some browsers */}
+        <div className="h-2 snap-end" aria-hidden />
+      </div>
+    </main>
   );
 }

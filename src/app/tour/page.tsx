@@ -4,7 +4,7 @@ import TourWalkthrough from "../components/TourWalkthrough";
 export const metadata: Metadata = {
   title: "The Process | Stonebrook",
   description:
-    "A scroll-through of how Stonebrook works with clients—from discovery and mockups to launch and support—told in plain language.",
+    "A cinematic walkthrough of how Stonebrook partners with clients—from first conversation to launch and beyond.",
 };
 
 export default function TourPage() {
