@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import TourWalkthrough from "../components/TourWalkthrough";
+import TourWalkthrough from "../../components/TourWalkthrough";
 
 export const metadata: Metadata = {
   title: "The Process | Stonebrook",
