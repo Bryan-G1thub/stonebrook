@@ -1,12 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Pad = {
   id: string;
   label: string;
-  /** Path under /public when ready, e.g. "/sounds/kick.mp3" */
-  src: string | null;
+  src: string;
   accent: string;
 };
 
@@ -14,28 +13,55 @@ const PADS: Pad[] = [
   { id: "01", label: "FAHHHH", src: "/sounds/fahhhhhhhhhhhhhh.mp3", accent: "#8a8680" },
   { id: "02", label: "VINE BOOM", src: "/sounds/vine-boom.mp3", accent: "#7a7670" },
   { id: "03", label: "WOW", src: "/sounds/anime-wow-sound-effect.mp3", accent: "#6e6a64" },
-  { id: "04", label: "HEAVENLY", src: "/sounds/heavenly-music.mp3", accent: "#908c86" },
+  { id: "04", label: "HOLY", src: "/sounds/holy.mp3", accent: "#908c86" },
   { id: "05", label: "GAH DAYUM", src: "/sounds/gah-dayum.mp3", accent: "#75716b" },
   { id: "06", label: "WHAT DA DOG DOING", src: "/sounds/yt1s_wU4BGgD.mp3", accent: "#84807a" },
   { id: "07", label: "AWW SO CUTE", src: "/sounds/aww-so-cute-ishowspeed.mp3", accent: "#6a6660" },
-  { id: "08", label: "Pad 08", src: null, accent: "#8c8882" },
-  { id: "09", label: "Pad 09", src: null, accent: "#787470" },
-  { id: "10", label: "Pad 10", src: null, accent: "#82807a" },
-  { id: "11", label: "Pad 11", src: null, accent: "#726e68" },
-  { id: "12", label: "Pad 12", src: null, accent: "#86827c" },
+  { id: "08", label: "FAIRY", src: "/sounds/fairy.mp3", accent: "#8c8882" },
 ];
+
+function fitGrid(count: number, width: number, height: number) {
+  if (count <= 0) return { cols: 1, rows: 1 };
+
+  const aspect = width / Math.max(height, 1);
+  let best = { cols: count, rows: 1, score: Number.POSITIVE_INFINITY };
+
+  for (let cols = 1; cols <= count; cols++) {
+    const rows = Math.ceil(count / cols);
+    const cellAspect = width / cols / (height / rows);
+    const empty = cols * rows - count;
+    const squarePenalty = Math.abs(Math.log(cellAspect || 1));
+    const orientationPenalty =
+      aspect >= 1 ? (cols >= rows ? 0 : 0.35) : rows >= cols ? 0 : 0.35;
+    const score = squarePenalty + empty * 0.6 + orientationPenalty;
+
+    if (score < best.score) {
+      best = { cols, rows, score };
+    }
+  }
+
+  return { cols: best.cols, rows: best.rows };
+}
 
 export default function Soundboard() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [grid, setGrid] = useState({ cols: 4, rows: 2 });
   const audioCache = useRef<Map<string, HTMLAudioElement>>(new Map());
+
+  useEffect(() => {
+    const update = () => {
+      setGrid(fitGrid(PADS.length, window.innerWidth, window.innerHeight));
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const playPad = (pad: Pad) => {
     setActiveId(pad.id);
     window.setTimeout(() => {
       setActiveId((current) => (current === pad.id ? null : current));
     }, 180);
-
-    if (!pad.src) return;
 
     let audio = audioCache.current.get(pad.id);
     if (!audio) {
@@ -44,32 +70,35 @@ export default function Soundboard() {
     }
     audio.currentTime = 0;
     void audio.play().catch(() => {
-      /* ignore until real files exist */
+      /* ignore autoplay / load errors */
     });
   };
 
   return (
     <div
-      className="min-h-screen text-[#e8e6e3]"
+      className="h-dvh w-dvw overflow-hidden text-[#e8e6e3]"
       style={{
         fontFamily: "var(--font-soundboard-body), system-ui, sans-serif",
         background: "#111110",
       }}
     >
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-0 w-full">
+      <div
+        className="grid h-full w-full gap-0"
+        style={{
+          gridTemplateColumns: `repeat(${grid.cols}, minmax(0, 1fr))`,
+          gridTemplateRows: `repeat(${grid.rows}, minmax(0, 1fr))`,
+        }}
+      >
         {PADS.map((pad) => {
           const isActive = activeId === pad.id;
-          const ready = Boolean(pad.src);
 
           return (
             <button
               key={pad.id}
               type="button"
               onClick={() => playPad(pad)}
-              aria-label={
-                ready ? `Play ${pad.label}` : `${pad.label} (no sound yet)`
-              }
-              className="group relative aspect-square overflow-hidden bg-[#1a1918] text-left outline-none transition-transform duration-150 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/40 active:scale-[0.98]"
+              aria-label={`Play ${pad.label}`}
+              className="group relative min-h-0 min-w-0 overflow-hidden bg-[#1a1918] text-left outline-none transition-transform duration-150 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/40 active:scale-[0.98]"
               style={{
                 transform: isActive ? "scale(0.98)" : undefined,
               }}
@@ -91,27 +120,22 @@ export default function Soundboard() {
                 aria-hidden
               />
 
-              <span className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6 md:p-8">
+              <span className="relative z-10 flex h-full flex-col justify-between p-4 sm:p-5 md:p-6">
                 <span
-                  className="inline-flex h-3 w-3 rounded-full transition-shadow duration-150"
+                  className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full transition-shadow duration-150 sm:h-3 sm:w-3"
                   style={{
                     backgroundColor: pad.accent,
                     boxShadow: isActive ? `0 0 12px ${pad.accent}` : undefined,
                   }}
                   aria-hidden
                 />
-                <span>
-                  <span className="block font-mono text-xs tracking-[0.2em] text-white/35 uppercase">
+                <span className="min-w-0">
+                  <span className="block font-mono text-[10px] tracking-[0.2em] text-white/35 uppercase sm:text-xs">
                     {pad.id}
                   </span>
-                  <span className="mt-1 block text-xl font-medium tracking-tight text-white sm:text-2xl md:text-3xl">
+                  <span className="mt-1 block truncate text-base font-medium tracking-tight text-white sm:text-xl md:text-2xl">
                     {pad.label}
                   </span>
-                  {!ready && (
-                    <span className="mt-1 block text-sm tracking-wide text-white/30">
-                      awaiting file
-                    </span>
-                  )}
                 </span>
               </span>
             </button>
