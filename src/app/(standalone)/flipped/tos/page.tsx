@@ -16,8 +16,8 @@ export default function TermsOfServicePage() {
       </header>
 
       <aside className="rounded border border-[#e8c96a] bg-[#fff8e1] px-4 py-3 text-sm text-[#5c4a00]">
-        <strong>DRAFT.</strong> This document was written to support development
-        and App Store submission. It has not been reviewed by an attorney.
+        <strong>Not attorney-reviewed.</strong> These Terms describe how Flipped
+        works today. They are not a substitute for legal advice.
       </aside>
 
       <section className="space-y-3">
@@ -25,15 +25,16 @@ export default function TermsOfServicePage() {
         <p>
           Flipped (&quot;Flipped,&quot; &quot;we,&quot; &quot;us,&quot; or
           &quot;our&quot;) is owned and operated by Stonebrook Digital LLC
-          (&quot;Stonebrook&quot;), a company based in Brooklyn, New York. These
-          Terms of Service (&quot;Terms&quot;) govern your access to and use of
-          the Flipped mobile application (the &quot;App&quot;) and any related
-          services (collectively, the &quot;Services&quot;).
+          (&quot;Stonebrook&quot;), a New York limited liability company based in
+          Brooklyn, New York. These Terms of Service (&quot;Terms&quot;) govern
+          your access to and use of the Flipped mobile application (the
+          &quot;App&quot;) and any related services (collectively, the
+          &quot;Services&quot;).
         </p>
         <p>
-          By creating an account, verifying your identity, or otherwise using the
-          Services, you agree to be bound by these Terms. If you do not agree, do
-          not use the Services.
+          By creating an account, verifying your identity, depositing funds, or
+          otherwise using the Services, you agree to these Terms. If you do not
+          agree, do not use the Services.
         </p>
       </section>
 
@@ -41,26 +42,30 @@ export default function TermsOfServicePage() {
         <h2 className="text-lg font-medium text-[#1a1a1a]">2. Eligibility</h2>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            You must be <strong>at least 18 years old</strong> to use the
-            Services.
+            You must be <strong>at least 18 years old</strong> and able to form a
+            binding contract.
           </li>
-          <li>You must be a legal resident of the United States.</li>
+          <li>
+            You must be located in the United States when using the Services.
+          </li>
           <li>
             <strong>
-              The Services are not available to residents of Washington State.
+              The Services are not available to residents of, or users located
+              in, Washington State.
             </strong>{" "}
-            We use IP-based geolocation to enforce this restriction; attempting
-            to circumvent it (e.g., via VPN) is a violation of these Terms and
-            may result in account suspension.
+            We may use IP-based geolocation and other signals to enforce this
+            restriction. Circumventing it (including via VPN or proxy) is a
+            violation of these Terms and may result in suspension, termination,
+            and forfeiture of Credits.
           </li>
           <li>
             You may hold <strong>only one account</strong>. Creating multiple
-            accounts to circumvent limits, promotions, or restrictions is
-            prohibited and may result in suspension of all associated accounts
-            and forfeiture of credit balances, at our discretion.
+            accounts to evade limits, promotions, or restrictions is prohibited
+            and may result in suspension of all related accounts and forfeiture
+            of Credits.
           </li>
           <li>
-            By using the Services, you represent that you meet all of the above
+            By using the Services, you represent that you meet all eligibility
             requirements.
           </li>
         </ul>
@@ -71,29 +76,30 @@ export default function TermsOfServicePage() {
           3. What Flipped Is (and Isn&apos;t)
         </h2>
         <p>
-          Flipped is a <strong>goods-commerce platform</strong>, not a gambling
-          or gaming platform. When you pay to &quot;flip,&quot; you are
-          purchasing the right to receive one item from a defined, disclosed pool
-          of trading card inventory at a fixed price, with odds of each outcome
-          disclosed in the App prior to purchase. This is comparable to
-          purchasing a sealed or blind-box collectible product, a well-established
-          category of retail commerce.
+          Flipped is a <strong>goods-commerce platform</strong> for purchasing
+          real, physical trading cards. When you pay to Flip, you are buying the
+          right to receive one card from a disclosed inventory pool at a fixed
+          price shown in the App. Approximate odds for each outcome band are
+          shown in the App before you Flip and are based on the live pool at that
+          time. This is comparable to buying a sealed or blind-box collectible.
         </p>
         <p>Flipped does not offer:</p>
         <ul className="list-disc space-y-2 pl-5">
-          <li>Cash withdrawals of any kind</li>
+          <li>Cash withdrawals or cash-out of Credits</li>
           <li>
-            Games of skill or games where outcomes are influenced by anything
-            other than the disclosed probability pool
+            Wagering, betting, or staking where you risk money for a chance at
+            more money
           </li>
           <li>
-            Any product framed, marketed, or intended as a wagering or betting
-            product
+            Outcomes influenced by anything other than the disclosed live
+            inventory pool
           </li>
         </ul>
         <p>
-          All value earned through the Services is issued and redeemable solely
-          in the form of <strong>Credits</strong>, as described in Section 5.
+          In-app value is issued only as <strong>Credits</strong>, described in
+          Section 5. Displayed card values are internal Flipped fair-market
+          estimates used for vault conversion and shipping economics — not
+          guarantees of third-party resale prices.
         </p>
       </section>
 
@@ -105,10 +111,10 @@ export default function TermsOfServicePage() {
             4.1 Guest Access
           </h3>
           <p>
-            You may use certain features of the App without creating a full
-            account (&quot;Guest&quot; access), including browsing available
-            boards and odds. Guest sessions are tied to a temporary identifier
-            and are not linked to a phone number or verified identity.
+            You may browse certain features without a full account
+            (&quot;Guest&quot; access), including boards and odds. Guest sessions
+            use a temporary identifier and are not linked to a phone number or
+            verified identity.
           </p>
         </div>
 
@@ -117,10 +123,9 @@ export default function TermsOfServicePage() {
             4.2 Full Accounts
           </h3>
           <p>
-            To make a purchase (a &quot;Flip&quot;), you must link a valid phone
-            number to your account via SMS verification. This is a basic identity
-            requirement and is separate from the identity verification described
-            in Section 6.
+            To deposit funds or Flip, you must link a valid phone number via SMS
+            verification. That is separate from the identity verification in
+            Section 6, which is required only before physical shipment.
           </p>
         </div>
 
@@ -129,9 +134,15 @@ export default function TermsOfServicePage() {
             4.3 Account Security
           </h3>
           <p>
-            You are responsible for maintaining the confidentiality of your
-            account and for all activity that occurs under it. Notify us
-            immediately of any unauthorized use.
+            You are responsible for activity under your account. Notify us
+            immediately at{" "}
+            <a
+              href="mailto:hello@stonebrooknyc.com"
+              className="underline underline-offset-2 hover:text-[#1a1a1a]"
+            >
+              hello@stonebrooknyc.com
+            </a>{" "}
+            if you suspect unauthorized use.
           </p>
         </div>
 
@@ -140,30 +151,31 @@ export default function TermsOfServicePage() {
             4.4 Account Deletion
           </h3>
           <p>
-            You may delete your account at any time from the Account screen in
-            the App (Delete account), or by emailing{" "}
+            You may delete your account from the Account screen in the App
+            (Delete account), or by emailing{" "}
             <a
               href="mailto:hello@stonebrooknyc.com"
               className="underline underline-offset-2 hover:text-[#1a1a1a]"
             >
               hello@stonebrooknyc.com
             </a>
-            . Upon deletion:
+            . The App will block deletion until you clear:
           </p>
           <ul className="list-disc space-y-2 pl-5">
+            <li>Cards still in your vault</li>
+            <li>Pending shipments</li>
+            <li>Any active Flip session in progress</li>
+          </ul>
+          <p>Upon successful deletion:</p>
+          <ul className="list-disc space-y-2 pl-5">
             <li>
-              Your personal information will be deleted or anonymized, except
-              where we are required to retain records for legal, tax, or
-              fraud-prevention purposes.
+              Personal information is deleted or anonymized, except records we
+              must keep for legal, tax, payment, or fraud-prevention purposes.
             </li>
             <li>
-              Any remaining Credit balance will be forfeited unless applicable
-              law requires otherwise.
-            </li>
-            <li>
-              You must resolve vault items and pending shipments before
-              deletion can complete. The App will block deletion and explain
-              what still needs to be cleared.
+              Any remaining Credit balance is forfeited unless applicable law
+              requires otherwise. The App asks you to confirm this before
+              deletion if a balance remains.
             </li>
           </ul>
         </div>
@@ -173,18 +185,17 @@ export default function TermsOfServicePage() {
         <h2 className="text-lg font-medium text-[#1a1a1a]">5. Credits</h2>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            Credits are the sole unit of value used within the Services. Credits
-            are displayed at a{" "}
+            Credits (shown as CR) are a prepaid in-app balance used to buy Flips.
+            They are displayed at a{" "}
             <strong>
-              1:1 nominal correspondence to U.S. dollars for user convenience
-              only
-            </strong>{" "}
-            and do not constitute currency, a deposit, a security, or a
-            stored-value instrument redeemable for cash.
+              1:1 nominal correspondence to U.S. dollars for convenience only
+            </strong>
+            . Credits are not currency, bank deposits, securities, or stored-value
+            instruments redeemable for cash.
           </li>
           <li>
-            Credits may be acquired by making a deposit through our supported
-            payment processor.
+            Credits are acquired by depositing through our payment processor
+            (currently Braintree / PayPal).
           </li>
           <li>
             <strong>
@@ -193,12 +204,8 @@ export default function TermsOfServicePage() {
             </strong>
           </li>
           <li>
-            Credits may be used to purchase Flips, pay shipping fees, or for
-            other purposes we may enable within the App.
-          </li>
-          <li>
-            We reserve the right to expire, adjust, or revoke Credits obtained
-            through fraud, error, or violation of these Terms.
+            We may reverse, adjust, expire, or revoke Credits obtained through
+            fraud, error, chargeback, or violation of these Terms.
           </li>
         </ul>
       </section>
@@ -211,28 +218,23 @@ export default function TermsOfServicePage() {
           <li>
             You are{" "}
             <strong>
-              not required to complete identity verification to make a purchase
-              or accumulate Credits.
+              not required to complete identity verification to deposit, Flip, or
+              hold Credits.
             </strong>
           </li>
           <li>
-            You <strong>are required to complete identity verification</strong>{" "}
-            before you may request physical shipment of any item won through the
-            Services.
+            You <strong>must complete identity verification</strong> before
+            requesting physical shipment of any card.
           </li>
           <li>
-            Identity verification is performed by our third-party provider,
-            Persona. By completing verification, you agree to Persona&apos;s
-            applicable terms and privacy practices.
+            Verification is performed by Persona. By verifying, you also agree to
+            Persona&apos;s applicable terms and privacy practices.
           </li>
           <li>
-            If you fail verification, your shipment request may be placed under
-            manual review. If you do not pass manual review, we may require
-            additional documentation before releasing any shipment.
-          </li>
-          <li>
-            We reserve the right to suspend your account or withhold shipment if
-            we cannot reasonably verify your identity or eligibility.
+            If verification fails, we may place the shipment under manual review
+            or require additional documentation. We may suspend the account or
+            withhold shipment if we cannot reasonably verify identity or
+            eligibility.
           </li>
         </ul>
       </section>
@@ -245,9 +247,12 @@ export default function TermsOfServicePage() {
         <div className="space-y-3">
           <h3 className="text-base font-medium text-[#1a1a1a]">7.1 Flips</h3>
           <p>
-            Each Flip draws one item from a disclosed, weighted pool tied to the
-            board you select. Odds for each outcome are displayed before purchase
-            and reflect the current composition of that pool.
+            Each Flip costs the CR price shown for the board you select and draws
+            one card from that board&apos;s live inventory pool. Approximate odds
+            shown before you Flip reflect current pool composition and may change
+            as cards are drawn or pools rotate. Once a Flip is completed, the
+            purchase is final except as required by law or as we expressly offer
+            in-product (for example, vault conversion).
           </p>
         </div>
 
@@ -255,24 +260,23 @@ export default function TermsOfServicePage() {
           <h3 className="text-base font-medium text-[#1a1a1a]">
             7.2 The Vault
           </h3>
-          <p>After a Flip, you may choose to:</p>
+          <p>After a Flip, you may:</p>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>Ship</strong> the physical item to you (subject to Section
-              6 and applicable shipping fees), or
+              <strong>Ship</strong> the physical card (subject to Section 6 and
+              shipping fees), or
             </li>
             <li>
-              <strong>Vault</strong> the item, holding it virtually for a period
-              of <strong>30 days</strong>.
+              <strong>Vault</strong> it for up to <strong>7 days</strong>.
             </li>
           </ul>
           <p>
-            If you take no action within the 30-day vault window, the item will
-            automatically convert to Credits at its{" "}
-            <strong>Flip Value</strong> — defined as the item&apos;s then-current
-            market price (sourced via our pricing data provider) multiplied by
-            90%. This automatic conversion is disclosed to you at the time an
-            item enters the vault.
+            If you take no action within the 7-day vault window, the card
+            automatically converts to Credits at its{" "}
+            <strong>Flip Value</strong>: the card&apos;s then-current Flipped
+            fair-market estimate (from our pricing data provider, generally 90%
+            of the referenced market price, floored to cents). That conversion is
+            disclosed when the card enters the vault and is final once applied.
           </p>
         </div>
 
@@ -282,19 +286,41 @@ export default function TermsOfServicePage() {
           </h3>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              Shipping fees are tiered based on the value of the bundle being
-              shipped and are disclosed before you confirm a shipment request.
+              Shipping fees are tiered by the total Flip Value of the cards in
+              the shipment and are shown before you pay. Fees are charged through
+              our payment processor (not deducted from Credits).
             </li>
             <li>
-              You are responsible for providing an accurate shipping address. We
-              are not responsible for items lost due to an incorrect address
-              provided by you.
+              Current fee tiers (subject to change; the App shows the amount due
+              at checkout): under $5 total Flip Value → $9.99; $5–$15 → $7.99;
+              $15+ → $5.99.
             </li>
             <li>
-              Applicable sales tax will be assessed at the time of shipment and
-              deducted from your Credit balance.
+              You must provide an accurate shipping address. We are not
+              responsible for loss caused by an address you entered incorrectly.
+            </li>
+            <li>
+              We ship within the United States only. We may refuse shipments that
+              appear fraudulent, go to unsupported locations, or violate law.
+            </li>
+            <li>
+              Any sales tax or similar charges required by law may be collected
+              at checkout as disclosed in the App.
             </li>
           </ul>
+        </div>
+
+        <div className="space-y-3">
+          <h3 className="text-base font-medium text-[#1a1a1a]">
+            7.4 Refunds and Chargebacks
+          </h3>
+          <p>
+            Because each Flip yields a unique physical collectible from live
+            inventory, sales are generally final. We may issue refunds or Credits
+            at our discretion for clear fulfillment errors or as required by law.
+            Unwarranted chargebacks may result in account suspension and
+            forfeiture of Credits.
+          </p>
         </div>
       </section>
 
@@ -305,54 +331,68 @@ export default function TermsOfServicePage() {
         <p>You agree not to:</p>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            Use the Services if you are located in Washington State or are under
-            18
+            Use the Services if you are under 18, or while located in Washington
+            State
           </li>
           <li>Create more than one account</li>
           <li>
-            Use automated tools, bots, or scripts to interact with the Services
+            Use bots, scripts, or automated tools to interact with the Services
           </li>
           <li>
-            Attempt to manipulate, reverse-engineer, or exploit the probability
-            systems underlying Flips
+            Manipulate, reverse-engineer, or exploit Flip probability or
+            inventory systems
           </li>
           <li>Provide false information during identity verification</li>
+          <li>
+            Abuse payments, including friendly fraud or unjustified chargebacks
+          </li>
           <li>Use the Services for any unlawful purpose</li>
         </ul>
         <p>
-          Violation of this section may result in suspension or termination of
-          your account and forfeiture of Credits, at our sole discretion.
+          Violation may result in suspension or termination and forfeiture of
+          Credits, at our sole discretion.
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-lg font-medium text-[#1a1a1a]">9. Payments</h2>
         <p>
-          Deposits are processed through our third-party payment processor(s),
-          including Braintree/PayPal. By making a deposit, you agree to the
-          applicable terms of our payment processor. We do not store your full
-          payment card details.
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-lg font-medium text-[#1a1a1a]">10. Disclaimers</h2>
-        <p className="uppercase">
-          The Services are provided &quot;as is&quot; without warranties of any
-          kind, express or implied. We do not guarantee that the Services will be
-          uninterrupted, error-free, or secure.
-        </p>
-        <p>
-          Pricing data (including Flip Value calculations) is sourced from
-          third-party market data providers and may fluctuate or contain
-          inaccuracies. We do not guarantee the accuracy of any displayed market
-          value.
+          Deposits and shipping fees are processed by Braintree / PayPal. By
+          paying, you also agree to the processor&apos;s applicable terms. We do
+          not store your full payment card number.
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-lg font-medium text-[#1a1a1a]">
-          11. Limitation of Liability
+          10. Intellectual Property
+        </h2>
+        <p>
+          Flipped branding, software, UI, and content we create are owned by
+          Stonebrook or its licensors. Trading card names, artwork, logos, and
+          trademarks belong to their respective owners. Flipped is not affiliated
+          with or endorsed by those rights holders unless we expressly say so.
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-lg font-medium text-[#1a1a1a]">11. Disclaimers</h2>
+        <p className="uppercase">
+          The Services are provided &quot;as is&quot; and &quot;as available&quot;
+          without warranties of any kind, express or implied, including
+          merchantability, fitness for a particular purpose, and
+          non-infringement. We do not guarantee uninterrupted, error-free, or
+          secure operation.
+        </p>
+        <p>
+          Market and Flip Value estimates may be wrong or change. We do not
+          guarantee any secondary-market price for a card you receive.
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-lg font-medium text-[#1a1a1a]">
+          12. Limitation of Liability
         </h2>
         <p className="uppercase">
           To the maximum extent permitted by law, Stonebrook Digital LLC and its
@@ -364,32 +404,44 @@ export default function TermsOfServicePage() {
       </section>
 
       <section className="space-y-3">
+        <h2 className="text-lg font-medium text-[#1a1a1a]">13. Indemnity</h2>
+        <p>
+          You will defend and indemnify Stonebrook Digital LLC and its
+          affiliates against claims arising from your misuse of the Services,
+          violation of these Terms, or violation of law, except to the extent
+          caused by our willful misconduct.
+        </p>
+      </section>
+
+      <section className="space-y-3">
         <h2 className="text-lg font-medium text-[#1a1a1a]">
-          12. Governing Law and Disputes
+          14. Governing Law and Disputes
         </h2>
         <p>
           These Terms are governed by the laws of the State of New York, without
-          regard to conflict-of-law rules. Any dispute arising out of or relating
-          to these Terms or the Services will be resolved exclusively in the
-          state or federal courts located in Kings County, New York, and you
-          consent to personal jurisdiction in those courts.
+          regard to conflict-of-law rules. Except where applicable consumer law
+          requires otherwise, disputes will be resolved exclusively in the state
+          or federal courts located in Kings County, New York, and you consent to
+          personal jurisdiction there.
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-lg font-medium text-[#1a1a1a]">
-          13. Changes to These Terms
+          15. Changes to These Terms
         </h2>
         <p>
-          We may update these Terms from time to time. Material changes will be
-          communicated via the App or by email. Continued use of the Services
-          after changes take effect constitutes acceptance of the updated Terms.
+          We may update these Terms from time to time. The &quot;Last
+          updated&quot; date above will change when we do. Material changes will
+          be communicated in the App or by email where appropriate. Continued use
+          after changes take effect constitutes acceptance, except where law
+          requires a new affirmative consent.
         </p>
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-lg font-medium text-[#1a1a1a]">14. Contact</h2>
-        <p>Questions about these Terms can be directed to:</p>
+        <h2 className="text-lg font-medium text-[#1a1a1a]">16. Contact</h2>
+        <p>Questions about these Terms:</p>
         <p>
           Stonebrook Digital LLC
           <br />
@@ -405,12 +457,12 @@ export default function TermsOfServicePage() {
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-lg font-medium text-[#1a1a1a]">15. Termination</h2>
+        <h2 className="text-lg font-medium text-[#1a1a1a]">17. Termination</h2>
         <p>
-          We may suspend or terminate your access to the Services at any time,
-          with or without cause, including for violation of these Terms. Sections
-          relating to Credits forfeiture, limitation of liability, and dispute
-          resolution survive termination.
+          We may suspend or terminate access at any time, with or without cause,
+          including for violation of these Terms. Sections on Credits
+          forfeiture, intellectual property, disclaimers, limitation of
+          liability, indemnity, and disputes survive termination.
         </p>
         <p className="pt-2 text-sm text-[#888]">
           See also our{" "}

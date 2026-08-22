@@ -16,8 +16,8 @@ export default function PrivacyPolicyPage() {
       </header>
 
       <aside className="rounded border border-[#e8c96a] bg-[#fff8e1] px-4 py-3 text-sm text-[#5c4a00]">
-        <strong>DRAFT.</strong> This document was written to support development
-        and App Store submission. It has not been reviewed by an attorney.
+        <strong>Not attorney-reviewed.</strong> This Privacy Policy describes how
+        Flipped handles data today. It is not a substitute for legal advice.
       </aside>
 
       <section className="space-y-3">
@@ -25,8 +25,9 @@ export default function PrivacyPolicyPage() {
         <p>
           This Privacy Policy explains how Stonebrook Digital LLC
           (&quot;Stonebrook,&quot; &quot;we,&quot; &quot;us,&quot; or
-          &quot;our&quot;), the operator of the Flipped mobile application (the
-          &quot;App&quot;), collects, uses, and shares your information.
+          &quot;our&quot;), operator of the Flipped mobile application (the
+          &quot;App&quot;), collects, uses, and shares information when you use
+          Flipped and related services (the &quot;Services&quot;).
         </p>
       </section>
 
@@ -41,29 +42,31 @@ export default function PrivacyPolicyPage() {
           </h3>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>Phone number</strong> — collected when you link a phone
-              number to upgrade from a guest session to a full account.
+              <strong>Phone number</strong> — when you upgrade from a guest
+              session to a full account via SMS verification (Firebase Auth).
             </li>
             <li>
               <strong>Identity verification data</strong> — when you request
-              shipment of a physical item, we collect the information required by
-              our identity verification provider, Persona, which may include a
-              government-issued ID, a liveness/selfie image, and associated
-              identity data.
+              physical shipment, Persona may collect a government-issued ID,
+              liveness/selfie image, and related identity data on our behalf.
             </li>
             <li>
-              <strong>Shipping address</strong> — collected when you request
-              physical delivery of an item.
+              <strong>Shipping address</strong> — when you request delivery of a
+              card.
             </li>
             <li>
               <strong>Payment information</strong> — collected and processed by
-              our payment processor(s) (Braintree/PayPal). We do not store your
-              full card number.
+              Braintree / PayPal for deposits and shipping fees. We do not store
+              your full card number.
             </li>
             <li>
-              <strong>Support communications</strong> — information you provide
-              when contacting support, including chat messages, tickets, and any
-              attachments you share.
+              <strong>Support communications</strong> — messages, tickets, and
+              attachments you send to support or help chat.
+            </li>
+            <li>
+              <strong>Legal consent</strong> — records that you accepted these
+              Terms and this Privacy Policy (and optional marketing preferences,
+              if offered).
             </li>
           </ul>
         </div>
@@ -74,19 +77,18 @@ export default function PrivacyPolicyPage() {
           </h3>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>Device and usage data</strong> — device type, operating
-              system, app version, crash logs, and general usage/interaction
-              data.
+              <strong>Device and usage data</strong> — device type, OS, app
+              version, crash logs, and interaction data needed to run and improve
+              the App.
             </li>
             <li>
-              <strong>Approximate location (IP-based)</strong> — used solely to
-              enforce geographic eligibility restrictions (see Section 3). We do
-              not collect precise GPS location.
+              <strong>Approximate location (IP-based)</strong> — used to enforce
+              geographic eligibility (including the Washington State restriction).
+              We do not collect precise GPS location for this purpose.
             </li>
             <li>
-              <strong>Anonymous session identifiers</strong> — Guest sessions are
-              assigned a temporary identifier before any personal information is
-              collected.
+              <strong>Anonymous session identifiers</strong> — temporary IDs for
+              Guest sessions before personal information is collected.
             </li>
           </ul>
         </div>
@@ -98,10 +100,11 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc space-y-2 pl-5">
             <li>Identity verification results from Persona.</li>
             <li>
-              Card pricing/market value data from our pricing data provider
-              (Scrydex), which does not include information about you personally.
+              Card pricing / market data from our pricing provider (Scrydex /
+              related market feeds). This is catalog pricing data, not a profile
+              about you.
             </li>
-            <li>Transaction confirmations from our payment processor.</li>
+            <li>Payment and deposit confirmations from Braintree / PayPal.</li>
           </ul>
         </div>
       </section>
@@ -112,23 +115,20 @@ export default function PrivacyPolicyPage() {
         </h2>
         <p>We use the information we collect to:</p>
         <ul className="list-disc space-y-2 pl-5">
-          <li>Operate and maintain your account and Credit balance</li>
-          <li>Process Flips, shipments, and vault activity</li>
-          <li>Verify your identity before releasing a physical shipment</li>
+          <li>Create and maintain your account and Credit balance</li>
+          <li>Process Flips, vault activity, deposits, and shipments</li>
+          <li>Verify identity before releasing a physical shipment</li>
           <li>
-            Enforce eligibility restrictions, including age (18+) and geographic
-            restrictions (Washington State residents are not eligible to use the
-            Services)
+            Enforce eligibility (18+, U.S. use, Washington State exclusion)
           </li>
-          <li>Prevent fraud, abuse, and duplicate account creation</li>
+          <li>Prevent fraud, abuse, chargebacks, and duplicate accounts</li>
           <li>Provide customer support</li>
-          <li>Comply with legal, tax, and regulatory obligations</li>
-          <li>Improve and maintain the App</li>
+          <li>Comply with legal, tax, and recordkeeping obligations</li>
+          <li>Operate, secure, and improve the App</li>
         </ul>
         <p>
           We do <strong>not</strong> use your information for interest-based
-          advertising, and we do not sell your personal information to third
-          parties.
+          advertising, and we do not sell your personal information.
         </p>
       </section>
 
@@ -136,9 +136,7 @@ export default function PrivacyPolicyPage() {
         <h2 className="text-lg font-medium text-[#1a1a1a]">
           4. How We Share Your Information
         </h2>
-        <p>
-          We share information only as necessary to operate the Services:
-        </p>
+        <p>We share information only as needed to run the Services:</p>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[28rem] border-collapse text-left text-sm">
             <thead>
@@ -153,45 +151,43 @@ export default function PrivacyPolicyPage() {
               <tr className="border-b border-[#eee]">
                 <td className="py-2.5 pr-4">Persona</td>
                 <td className="py-2.5">
-                  Identity verification prior to shipment
+                  Identity verification before shipment
                 </td>
               </tr>
               <tr className="border-b border-[#eee]">
                 <td className="py-2.5 pr-4">Braintree / PayPal</td>
-                <td className="py-2.5">Payment processing</td>
+                <td className="py-2.5">Deposits and shipping fee charges</td>
               </tr>
               <tr className="border-b border-[#eee]">
-                <td className="py-2.5 pr-4">Scrydex</td>
+                <td className="py-2.5 pr-4">Pricing data provider (Scrydex)</td>
                 <td className="py-2.5">
-                  Card pricing data (does not receive your personal data)
+                  Card market pricing (does not receive your personal profile)
                 </td>
               </tr>
               <tr className="border-b border-[#eee]">
                 <td className="py-2.5 pr-4">Shipping carriers</td>
                 <td className="py-2.5">
-                  Delivery of physical items you&apos;ve requested
+                  Delivery of physical cards you request
                 </td>
               </tr>
               <tr className="border-b border-[#eee]">
                 <td className="py-2.5 pr-4">Firebase / Google Cloud</td>
                 <td className="py-2.5">
-                  Underlying infrastructure for account, data storage, and app
-                  functionality
+                  Auth, database, hosting, and app infrastructure
                 </td>
               </tr>
               <tr>
-                <td className="py-2.5 pr-4">Law enforcement or regulators</td>
+                <td className="py-2.5 pr-4">Law enforcement / regulators</td>
                 <td className="py-2.5">
-                  Where required by law, subpoena, or valid legal process
+                  When required by law, subpoena, or valid legal process
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <p>
-          We do not share your identity verification data with any party other
-          than Persona and, where legally required, regulators or law
-          enforcement.
+          We do not share identity-verification data with anyone other than
+          Persona and, where legally required, regulators or law enforcement.
         </p>
       </section>
 
@@ -200,11 +196,11 @@ export default function PrivacyPolicyPage() {
           5. Data Retention
         </h2>
         <p>
-          We retain your information for as long as your account is active and as
-          needed to comply with legal, tax, and fraud-prevention obligations.
-          Identity verification records are retained in accordance with
-          applicable recordkeeping requirements even after account deletion,
-          where required by law.
+          We keep account and transaction data while your account is active and
+          as long as needed for legal, tax, payment-dispute, and fraud-prevention
+          purposes. After you delete your account, we delete or anonymize personal
+          data we no longer need, but we may retain limited records (for example
+          payment, KYC, and fraud logs) where the law or processors require it.
         </p>
       </section>
 
@@ -214,16 +210,17 @@ export default function PrivacyPolicyPage() {
         </h2>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            <strong>Account deletion</strong>: You may delete your account and
-            associated personal information at any time from the Account screen
-            in the App, or by emailing{" "}
+            <strong>Account deletion</strong>: Use Delete account on the Account
+            screen, or email{" "}
             <a
               href="mailto:hello@stonebrooknyc.com"
               className="underline underline-offset-2 hover:text-[#1a1a1a]"
             >
               hello@stonebrooknyc.com
             </a>
-            , subject to the retention exceptions described in Section 5 and
+            . Deletion is blocked until vault items, pending shipments, and active
+            Flip sessions are cleared. Remaining Credits are forfeited on
+            deletion (you confirm this in the App if a balance remains). See also
             Section 4.4 of our{" "}
             <Link
               href="/flipped/tos"
@@ -231,43 +228,31 @@ export default function PrivacyPolicyPage() {
             >
               Terms of Service
             </Link>
-            . Deletion may be blocked until vault items and pending shipments
-            are resolved; remaining Credits are forfeited on deletion.
+            .
           </li>
           <li>
-            <strong>Access/correction</strong>: You may contact us to request a
-            copy of the personal information we hold about you or to correct
-            inaccurate information.
+            <strong>Access / correction</strong>: Email us to request a copy of
+            personal information we hold about you, or to correct inaccurate
+            information.
           </li>
           <li>
             <strong>California privacy rights (CCPA/CPRA)</strong>: If you are a
-            California resident, you may have the right to request that we
-            disclose what personal information we collect and how we use it,
-            delete personal information (subject to legal exceptions), and opt
-            out of the &quot;sale&quot; or &quot;sharing&quot; of personal
-            information. We do not sell or share personal information as those
-            terms are defined under California law. To exercise these rights,
-            email{" "}
+            California resident, you may request that we disclose what personal
+            information we collect and how we use it, delete personal information
+            (subject to legal exceptions), and opt out of the &quot;sale&quot; or
+            &quot;sharing&quot; of personal information. We do not sell or share
+            personal information as those terms are defined under California law.
+            Email{" "}
             <a
               href="mailto:hello@stonebrooknyc.com"
               className="underline underline-offset-2 hover:text-[#1a1a1a]"
             >
               hello@stonebrooknyc.com
-            </a>
-            . We will not discriminate against you for exercising your privacy
-            rights.
+            </a>{" "}
+            to exercise these rights. We will not discriminate against you for
+            doing so.
           </li>
         </ul>
-        <p>
-          To exercise any of these rights, contact us at{" "}
-          <a
-            href="mailto:hello@stonebrooknyc.com"
-            className="underline underline-offset-2 hover:text-[#1a1a1a]"
-          >
-            hello@stonebrooknyc.com
-          </a>
-          .
-        </p>
       </section>
 
       <section className="space-y-3">
@@ -275,10 +260,9 @@ export default function PrivacyPolicyPage() {
           7. Children&apos;s Privacy
         </h2>
         <p>
-          The Services are not directed to, and are not intended for use by,
-          anyone under 18. We do not knowingly collect information from anyone
-          under 18. If we become aware that we have collected information from a
-          user under 18, we will delete it.
+          The Services are for users 18+. We do not knowingly collect personal
+          information from anyone under 18. If we learn that we have, we will
+          delete it.
         </p>
       </section>
 
@@ -287,10 +271,9 @@ export default function PrivacyPolicyPage() {
           8. Data Security
         </h2>
         <p>
-          We use commercially reasonable technical and organizational measures to
-          protect your information, including access controls on our backend
-          systems and encrypted transmission of sensitive data. No system is
-          completely secure, and we cannot guarantee absolute security.
+          We use commercially reasonable technical and organizational measures,
+          including access controls and encrypted transmission of sensitive data.
+          No system is completely secure.
         </p>
       </section>
 
@@ -299,10 +282,9 @@ export default function PrivacyPolicyPage() {
           9. International Users
         </h2>
         <p>
-          The Services are intended for use by residents of the United States
-          only (excluding Washington State). If you access the Services from
-          outside the United States, your information will be transferred to and
-          processed in the United States.
+          The Services are intended for use from the United States only
+          (excluding Washington State). If you access them from elsewhere, your
+          information will be processed in the United States.
         </p>
       </section>
 
@@ -311,18 +293,15 @@ export default function PrivacyPolicyPage() {
           10. Changes to This Policy
         </h2>
         <p>
-          We may update this Privacy Policy from time to time. Material changes
-          will be communicated via the App or by email. Continued use of the
-          Services after changes take effect constitutes acceptance of the
-          updated policy.
+          We may update this Privacy Policy. The &quot;Last updated&quot; date
+          will change when we do. Material changes will be communicated in the
+          App or by email where appropriate. Continued use after changes take
+          effect constitutes acceptance, except where law requires new consent.
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-lg font-medium text-[#1a1a1a]">11. Contact Us</h2>
-        <p>
-          Questions about this Privacy Policy can be directed to:
-        </p>
         <p>
           Stonebrook Digital LLC
           <br />
